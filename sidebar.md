@@ -1,4 +1,9 @@
-# [Your Project Name](Your project link)
+# [Mel Notes](Your project link)
 
-- [FAQ](#notes/faq)
-- [ML](#notes/ml)
+## Machine Learning
+- [Logistic Regression](#docs/logreg)
+- [Bayesian](#docs/bayes)
+
+## Neural Networks
+- [MLP](#docs/mlp)
+
