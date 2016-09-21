@@ -32,7 +32,9 @@ H_{{y}'}(y) = - \sum_i {y}'_{i} log(y_i)
 where $y$ is the predicted probability distribution and ${y}'$ is the true distribution.
 
 
-
+# Weight Initialization
+One should generally initialize weights with a small amount of noise for symmetry breaking and to prevent 0 gradients.
+If using ReLU neurons, it is good practce to initialize them with a slightly positive initial bias to avoid `dead neurons'.
 
 
 
