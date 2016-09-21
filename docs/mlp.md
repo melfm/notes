@@ -19,3 +19,27 @@ Softmax serves as an activation function, shaping the output of our linear funct
 \begin{equation} 
 y = softmax(Wx + b)
 \end{equation}
+
+# Cross-entropy
+When we train a neural network, we need to define what it means for the model to be good. Actually we usually define the other way round, what it means for a model to be bad, called cost or loss. We then try to minimize how bad it is.
+Cross-entropy arises from thinking about information compressing codes in information theory.
+
+
+\begin{equation} 
+H_{{y}'}(y) = - \sum_i {y}'_{i} log(y_i)
+\end{equation}
+
+where $y$ is the predicted probability distribution and ${y}'$ is the true distribution.
+
+
+
+
+
+
+
+
+
+
+
+
+
