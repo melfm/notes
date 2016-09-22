@@ -6,4 +6,4 @@
 
 ## Neural Networks
 - [MLP](#docs/mlp)
-
+- [RNN](#docs/rnn)
