@@ -27,5 +27,7 @@ The usual approach for dealing with long sequences is to `truncate' the backprop
 Say the graph is $n$ time steps wide, so time-step is a duplicate, sharing the same variables.
 Easiest way is to build these duplicates parts in parallel. So this means represent each type of duplicate tensor(the rnn inputs, the rnn outputs (hidden state), the prediction, the loss) as a list of tensors.
 
+So each training step is run by executing the graph, while grabbing the final state produced by that execution to pass on to the next execution.
+
 
 
