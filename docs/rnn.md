@@ -1,7 +1,7 @@
 # Recurrent Neural Networks
 
 RNNs are neural networks that accept their own outputs as inputs.
-The most basic model would be at time step $t$, for $t \in {0,1,...,n} it accepts $X_t$ vector and a previous state vector, $S_{t-1} as input.
+The most basic model would be at time step $t$, for $t \in {0,1,...,n}$ it accepts $X_t$ vector and a previous state vector, $S_{t-1} as input.
 It then produces a state vector $S_t$ and a prediction.
 
 \begin{equation} 
