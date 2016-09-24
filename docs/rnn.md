@@ -1,5 +1,7 @@
 # Recurrent Neural Networks
 
+
+The idea behind RNNs is the ability to connect previous information to the present task.
 RNNs are neural networks that accept their own outputs as inputs.
 The most basic model would be at time step $t$, for $t \in {0,1,...,n}$ it accepts $X_t$ vector and a previous state vector, $S_{t-1}$ as input.
 It then produces a state vector $S_t$ and a prediction.
@@ -30,4 +32,6 @@ Easiest way is to build these duplicates parts in parallel. So this means repres
 So each training step is run by executing the graph, while grabbing the final state produced by that execution to pass on to the next execution.
 
 
+Resources:
+1. http://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
