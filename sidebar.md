@@ -9,3 +9,6 @@
 - [Single-Layer Perceptron](#docs/SLP)
 - [MLP](#docs/mlp)
 - [RNN](#docs/rnn)
+
+## Dynamic Systems
+- [DS](#docs/dynamic)
