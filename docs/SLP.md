@@ -27,10 +27,10 @@ w(n) = [b(n), w_1(n), w_2(n),...,w_m(n)]^T
 \end{equation}
 
 The linea combiner output is written in the form :
-\begin{align}
+\begin{align*}
 v(n) = \sum^{m}_{i=0} w_i(n)x_i(n) \\
 w^T(n)x(n)
-\end{align}
+\end{align*}
 
 
 
