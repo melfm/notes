@@ -4,6 +4,10 @@
 - [Logistic Regression](#docs/logreg)
 - [Bayesian](#docs/bayes)
 
+## Unconstrained Optimization Techniques
+- [Bayesian](#docs/unconstrained)
+
+
 ## Neural Networks
 - [Learning Processes](#docs/learning_process)
 - [Single-Layer Perceptron](#docs/SLP)
