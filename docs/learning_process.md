@@ -21,10 +21,10 @@ The neurons of a Boltzmann machine partition into two functional groups:visible 
 The visible neurons provide an interface between the network and the environment in which it operates; wheras the hidden neurons always operate freedly. There are two modes of operation:
 
 
-\begin{itemize}
-\item Clamped condition, in which the visible neurons are all clamped onto specific states determined by the environment.
-\item Free-running condition, in which all the neurons (visible and hidden) are allowed to operate freely.
-\end{itemize}
+1. Clamped condition, in which the visible neurons are all clamped onto specific states determined by the environment.
+
+2. Free-running condition, in which all the neurons (visible and hidden) are allowed to operate freely.
+
 
 
 
