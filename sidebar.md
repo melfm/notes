@@ -5,5 +5,6 @@
 - [Bayesian](#docs/bayes)
 
 ## Neural Networks
+- [Learning Processes](#docs/learning_process)
 - [MLP](#docs/mlp)
 - [RNN](#docs/rnn)
