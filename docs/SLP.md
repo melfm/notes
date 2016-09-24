@@ -29,8 +29,23 @@ w(n) = [b(n), w_1(n), w_2(n),...,w_m(n)]^T
 The linea combiner output is written in the form :
 \begin{align*}
 v(n) = \sum^{m}_{i=0} w_i(n)x_i(n) \\
-w^T(n)x(n)
+= w^T(n)x(n)
 \end{align*}
+
+where w_0(n) represents the bias $b(n)$.
+
+The algorithm for adapting weights is formulated as follows :
+1. If the $n^{th}$ member of the training set $x(n)$ is correctly classified by the weight vector $w(n)$ computed at the $n^{th}$ iteration of the algorithm, no correction is made to the weight vector of the perceptron in accordance with the rule :
+
+$W(n + 1) = w(n)$  if $w^T x(n) > 0$ and x(n) belongs to class $C_1$
+
+$W(n + 1) = w(n)$  if $w^T x(n) \leq 0$ and x(n) belongs to class $C_1$
+
+2. Otherwise, the weight vector of the perceptron is updated in accordance with the rule
+
+$W(n + 1) = w(v) - \eta(n)x(n)$  if $w^T x(n) > 0$ and x(n) belongs to class $C_1$
+
+$W(n + 1) = w(v) + \eta(n)x(n)$  if $w^T x(n) \leq 0$ and x(n) belongs to class $C_1$
 
 
 
