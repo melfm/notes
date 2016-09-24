@@ -21,9 +21,16 @@ Lets define our input vector :
 x(n) = [+1, x_1(n), x_2(n),...,x_m(n)]^T
 \end{equation}
 
+where $n$ is the iteration step in applying the algorithm. Lets define our weights :
+\begin{equation}
+w(n) = [b(n), w_1(n), w_2(n),...,w_m(n)]^T
+\end{equation}
 
-
-
+The linea combiner output is written in the form :
+\begin{align}
+v(n) = \sum^{m}_{i=0} w_i(n)x_i(n) \\
+w^T(n)x(n)
+\end{align}
 
 
 
