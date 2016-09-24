@@ -5,7 +5,7 @@
 - [Bayesian](#docs/bayes)
 
 ## Unconstrained Optimization Techniques
-- [Bayesian](#docs/unconstrained)
+- [Optimization](#docs/unconstrained)
 
 
 ## Neural Networks
