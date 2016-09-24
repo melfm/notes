@@ -25,12 +25,17 @@ So we could execute the graph for each time, feeding the state returned from the
 
 The usual approach for dealing with long sequences is to `truncate' the backpropagation by backpropagating a maximum of $n$ steps.Note the tradeoffs : higher $n$ lets us capture longer term dependencies, but more expensive computationally and memory-wise. 
 
-# TensorFlow Style
+## TensorFlow Style
 Say the graph is $n$ time steps wide, so time-step is a duplicate, sharing the same variables.
 Easiest way is to build these duplicates parts in parallel. So this means represent each type of duplicate tensor(the rnn inputs, the rnn outputs (hidden state), the prediction, the loss) as a list of tensors.
 
 So each training step is run by executing the graph, while grabbing the final state produced by that execution to pass on to the next execution.
 
+### Truncated Backpropagation
+It is common to truncate the gradients for backrpopagation to a fixed number (num_steps) of unrolled steps. This is implemented by feeding inputs of length num_steps at a time and doing backward pass after each iteration.
+
+# LSTM
+Designed to remember information for long periods of time.
 
 Resources:
 1. http://colah.github.io/posts/2015-08-Understanding-LSTMs/
