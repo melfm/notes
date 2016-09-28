@@ -2,17 +2,20 @@
 
 ## Machine Learning
 - [Logistic Regression](#docs/logreg)
-- [Bayesian](#docs/bayes)
+- [Bayesian Classifiers](#docs/bayes)
+- [k-nearest Neighbors ](#docs/knn)
 
-## Unconstrained Optimization Techniques
+## Unconstrained Optimization
 - [Optimization](#docs/unconstrained)
-
 
 ## Neural Networks
 - [Learning Processes](#docs/learning_process)
 - [Single-Layer Perceptron](#docs/SLP)
 - [MLP](#docs/mlp)
 - [RNN](#docs/rnn)
+
+## Evaluation Methods
+- [Evaluation](#docs/eval)
 
 ## Dynamic Systems
 - [DS](#docs/dynamic)
