@@ -42,3 +42,12 @@ The use of 'tangent distance' solves the above issues. The tangent can be comput
 
 ## Time Complexity
 One obvious drawback of KNN is the computational load both in finding the neighbors and storing the entire training set in memory. With $N$ observations and $p$ predictors, it requires $Np$ operations to find the neighbors. There are faster algorithms for finding the nearest-neighbors. Reducing storage is more difficult. The idea is to isolate a subset of the training set that suffices for the prediction and throw away the rest. So you keep the training points that are near the decision boundaries and discard the far points from the boundaries.
+
+## Nearest neighbor with a Caliper
+In sparse regions, instead of specifying a fixed number of k neighbors, we can use all observations in a caliper (fixed sitance) around a new observation. This could cause missing values is there are no observations around. Not as common as KNN.
+
+## Summary
+- Highly local behaviour
+- Good when decision boundary is irregular
+- Highly unstructured; not good for how x-var relate to outcomes
+- One of the best perfoming despite simlicity
