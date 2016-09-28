@@ -19,4 +19,8 @@ We first standardize each of the features to have zero mean and variance 1 since
 
 Methods like cross-validation can help to estimate the best value of a tuning parameter.
 
+## Invariant Metrics and Tangent Distance
+In some problems, the features are invariant under certain natural transformations. KNN can exploit such invariances by incorporating them into the metric used to measure the distances between objects. Consider the problem of MNIST classification. We wish to remove the effect of rotation in measuring distances between two digits of the same class. We could then generate variations of `3' say by applying rotations. Consider the set of pixel values of the orignal `3' and its rotate version. You can draw this as a one-dimensional curve, and through each image we draw the curve of the rotate version, this is called `invariance manifolds'. Now instead of using the usual Euclidean distance, we use the shortest distance between the two curves. This distance is called `invariant metric'. The limitations: difficult to calculate, secondly it allows large transformations that lead to poor performance, like taking 6 and rotating it which would be 9, hence need to restrict attention to small rotations.
+
+The use of `tangent distance' solves the above issues. The tangent can be computed by by estimating the direction vector from small rotations of the image and if you take a large rotation, the tangent image no longer looks like a 3 which removes the large transformations issue.
 
