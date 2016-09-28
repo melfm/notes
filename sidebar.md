@@ -3,7 +3,7 @@
 ## Machine Learning
 - [Logistic Regression](#docs/logreg)
 - [Bayesian Classifiers](#docs/bayes)
-- [k-nearest Neighbors ](#docs/knn)
+- [K-nearest Neighbors ](#docs/knn)
 
 ## Unconstrained Optimization
 - [Optimization](#docs/unconstrained)
@@ -17,5 +17,5 @@
 ## Evaluation Methods
 - [Evaluation](#docs/eval)
 
-## Dynamic Systems
-- [DS](#docs/dynamic)
+## Dynamic System Modeling
+- [Dynamics](#docs/dynamic)
