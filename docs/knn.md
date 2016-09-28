@@ -1,6 +1,6 @@
 #K-Nearest Neighbors
 Many classifiers attempt to estimate the conditional distribution of Y given X, and then classify a given observation to the class with the highest estimated probability, KNN being one. KNN is memory-based and requires no model to fit.
-,./Given a positive integer $K$ and a test observation $x_0$, the KNN classifier first identifies the $K$ points in the training data that are closest to $x_0$, represented by $\mathrm{N}_{0}$.
+Given a positive integer $K$ and a test observation $x_0$, the KNN classifier first identifies the $K$ points in the training data that are closest to $x_0$, represented by $\mathrm{N}_{0}$.
 It then estimates the conditional probability for class $j$ as the fraction of points in $ \mathrm{N}_{0}$ whose response values equal $j$:
 
 \begin{equation}
@@ -44,7 +44,7 @@ The use of 'tangent distance' solves the above issues. The tangent can be comput
 One obvious drawback of KNN is the computational load both in finding the neighbors and storing the entire training set in memory. With $N$ observations and $p$ predictors, it requires $Np$ operations to find the neighbors. There are faster algorithms for finding the nearest-neighbors. Reducing storage is more difficult. The idea is to isolate a subset of the training set that suffices for the prediction and throw away the rest. So you keep the training points that are near the decision boundaries and discard the far points from the boundaries.
 
 ## Nearest neighbor with a Caliper
-In sparse regions, instead of specifying a fixed number of k neighbors, we can use all observations in a caliper (fixed sitance) around a new observation. This could cause missing values is there are no observations around. Not as common as KNN.
+In sparse regions, instead of specifying a fixed number of k neighbors, we can use all observations in a caliper (fixed distance) around a new observation. This could cause missing values is there are no observations around. Not as common as KNN.
 
 ## Summary
 - Highly local behaviour
