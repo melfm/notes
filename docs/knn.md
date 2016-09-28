@@ -15,9 +15,25 @@ Think of finding the maximum probability as classifying by majority vote. Option
 - Increase k until tie is broken
 - Use 1NN as a tie breaker
 
-We first standardize each of the features to have zero mean and variance 1 since it is possible that they are measured in different units.
-
 Methods like cross-validation can help to estimate the best value of a tuning parameter.
+
+## Variabe Standardization
+We first standardize each of the features to have zero mean and variance 1 since it is possible that they are measured in different units. A typical standardization could be :
+\begin{equation}
+x^{std}_i = \frac{x_i - \bar{x}}{sd(x)}
+\end{equation}
+As a computer scientist, we just take the range of [0,1], either is fine.
+
+
+## Similarity
+Any distance metric can be turned into a similarity metric. e.g.
+
+\begin{equation}
+s(x_0, x_1) = \frac{1 - d(x_0, x_1)}{d_{max}}
+\end{equation}
+where d_{max} is the largest distance observed in the data. In text mining, $cosine(x_0,x_1) is also often used.
+
+
 
 ## Invariant Metrics and Tangent Distance
 In some problems, the features are invariant under certain natural transformations. KNN can exploit such invariances by incorporating them into the metric used to measure the distances between objects. Consider the problem of MNIST classification. We wish to remove the effect of rotation in measuring distances between two digits of the same class. We could then generate variations of '3' say by applying rotations. Consider the set of pixel values of the orignal '3' and its rotate version. You can draw this as a one-dimensional curve, and through each image we draw the curve of the rotate version, this is called 'invariance manifolds'. Now instead of using the usual Euclidean distance, we use the shortest distance between the two curves. This distance is called 'invariant metric'. The limitations: difficult to calculate, secondly it allows large transformations that lead to poor performance, like taking 6 and rotating it which would be 9, hence need to restrict attention to small rotations.
