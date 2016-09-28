@@ -22,7 +22,7 @@ We first standardize each of the features to have zero mean and variance 1 since
 \begin{equation}
 x^{std}_i = \frac{x_i - \bar{x}}{sd(x)}
 \end{equation}
-As a computer scientist, we just take the range of [0,1], either is fine.
+As computer scientists, we just take the range of [0,1], either is fine.
 
 
 ## Similarity
@@ -31,7 +31,7 @@ Any distance metric can be turned into a similarity metric. e.g.
 \begin{equation}
 s(x_0, x_1) = \frac{1 - d(x_0, x_1)}{d_{max}}
 \end{equation}
-where d_{max} is the largest distance observed in the data. In text mining, $cosine(x_0,x_1) is also often used.
+where $d_{max}$ is the largest distance observed in the data. In text mining, $cosine(x_0,x_1)$ is also often used.
 
 
 
@@ -40,3 +40,5 @@ In some problems, the features are invariant under certain natural transformatio
 
 The use of 'tangent distance' solves the above issues. The tangent can be computed by by estimating the direction vector from small rotations of the image and if you take a large rotation, the tangent image no longer looks like a 3 which removes the large transformations issue. To classify an image, we compute its invariant tangent line, find the closest line to it among the lines in the training set. Simpler way to achieve this? Just add rotated versions of images to the training set and then just use a standard KNN. Other transformations include translation (two direction), scaling (two direction), sheer and character thickness.
 
+## Time Complexity
+One obvious drawback of KNN is the computational load both in finding the neighbors and storing the entire training set in memory. With $N$ observations and $p$ predictors, it requires $Np$ operations to find the neighbors. There are faster algorithms for finding the nearest-neighbors. Reducing storage is more difficult. The idea is to isolate a subset of the training set that suffices for the prediction and throw away the rest. So you keep the training points that are near the decision boundaries and discard the far points from the boundaries.
