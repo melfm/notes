@@ -31,6 +31,14 @@ Easiest way is to build these duplicates parts in parallel. So this means repres
 
 So each training step is run by executing the graph, while grabbing the final state produced by that execution to pass on to the next execution.
 
+Most basic RNN: output = new_state = activation(W * input + U * state + B)
+
+
+
+
+
+
+
 ### Truncated Backpropagation
 It is common to truncate the gradients for backrpopagation to a fixed number (num_steps) of unrolled steps. This is implemented by feeding inputs of length num_steps at a time and doing backward pass after each iteration.
 
