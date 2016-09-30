@@ -27,6 +27,10 @@ So we could execute the graph for each time, feeding the state returned from the
 
 The usual approach for dealing with long sequences is to `truncate' the backpropagation by backpropagating a maximum of $n$ steps.Note the tradeoffs : higher $n$ lets us capture longer term dependencies, but more expensive computationally and memory-wise. 
 
+## RNN Computation
+They accept an input vector $x$ and give an output vector $y$. This output vector's contents are influenced not only by the input you feed in, but on the entire history of inputs that have been fed in.
+The RNN has an internal state that gets updated every time 'step' function is called. This function updates the state and returns the output vector. So this function, combines the previous hidden state and the current input to obtain the new state. You add the two, and then squash them using the activation function, say tanh to get the new state vector.
+
 ## TensorFlow Style
 Say the graph is $n$ time steps wide, so time-step is a duplicate, sharing the same variables.
 Easiest way is to build these duplicates parts in parallel. So this means represent each type of duplicate tensor(the rnn inputs, the rnn outputs (hidden state), the prediction, the loss) as a list of tensors.
