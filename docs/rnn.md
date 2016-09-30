@@ -10,7 +10,7 @@ It then produces a state vector $S_t$ and a prediction.
 S_t = tanh(W(X_t \| S_{t-1}) + b_s)
 \end{equation}
 
-Here we are concatenating the input and state vector. They essentially combine the input vector with their state vector with a fixed but learned function to produce a new state vector. This is like running a fixed program with certain inputs and internal variables.
+Here we are concatenating the input and state vector. 
 
 \begin{equation} 
 P_t = US_t + b_p
@@ -18,6 +18,8 @@ P_t = US_t + b_p
 
 Dimensions :
 $W \in R^{d \times (2 + d)}, b_s \in R^d, U \in R^{2 \times d}, d_p \in R^2$  and $d$ is the step size (size of state vector).
+
+They essentially combine the input vector with their state vector with a fixed but learned function to produce a new state vector. This is like running a fixed program with certain inputs and internal variables.
 
 Now the question is how wide the graph should be? Since each time step is a duplicate, it might make sense to initially have a graph $G$,
 that represents a single time step : $G(X_t, S_{t-1}) \rightarrow (P_t, S_t)$.
