@@ -1,16 +1,16 @@
 # Recurrent Neural Networks
 
 
-The idea behind RNNs is the ability to connect previous information to the present task.
-RNNs are neural networks that accept their own outputs as inputs.
-The most basic model would be at time step $t$, for $t \in {0,1,...,n}$ it accepts $X_t$ vector and a previous state vector, $S_{t-1}$ as input.
+The idea behind RNNs is the ability to connect previous information to the present task. One limitation of Vanilla Neural Networks is that they accept a fixed-sized vector as input and produce a fixed-sized vector as output. In addition, they perform this mapping using a fixed amount of computational steps (e.g. number of layers in the model).
+
+RNNs are neural networks that accept their own outputs as inputs. The most basic model would be at time step $t$, for $t \in {0,1,...,n}$ it accepts $X_t$ vector and a previous state vector, $S_{t-1}$ as input.
 It then produces a state vector $S_t$ and a prediction.
 
 \begin{equation} 
 S_t = tanh(W(X_t \| S_{t-1}) + b_s)
 \end{equation}
 
-Here we are concatenating the input and state vector.
+Here we are concatenating the input and state vector. They essentially combine the input vector with their state vector with a fixed but learned function to produce a new state vector. This is like running a fixed program with certain inputs and internal variables.
 
 \begin{equation} 
 P_t = US_t + b_p
