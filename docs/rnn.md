@@ -31,6 +31,13 @@ The usual approach for dealing with long sequences is to `truncate' the backprop
 They accept an input vector $x$ and give an output vector $y$. This output vector's contents are influenced not only by the input you feed in, but on the entire history of inputs that have been fed in.
 The RNN has an internal state that gets updated every time 'step' function is called. This function updates the state and returns the output vector. So this function, combines the previous hidden state and the current input to obtain the new state. You add the two, and then squash them using the activation function, say tanh to get the new state vector.
 
+## Computation Formulas
+- $s_t$ is the hidden state at time step $t$. It's the 'memory' of the network. $s_t$ is calculated based on the previous hidden state and the input at the current step: $s_t = f(Ux_t + W_{s_{t-1}})$. The function $f$ usually is a nonlinearity such as tanh or ReLU. $s-1$ which is required to calculate the first hidden state is typically initialized to all zeros.
+
+A few notes :
+- Think of hidden state $s_t$ as the memory of the network. $s_t$ captures information about what happened in all the previous time steps. The output at step $o_t$ is calculated solely based on the memory at time $t$.
+- Unlike vanilla deep neural network, which uses different parameter at each layer, a RNN shares the same parameters($U,V,W$) across all steps. This reflects the fact that we are performing the same task at each step, just with different inputs. This reduces the total number of parameters we need to learn!
+- When you see diagrams showing outputs at each time step, depending on the task you may not care about all! So in some cases you would only care about the final step. We may not even need inputs at each time step. The main feature of an RNN is its hidden state, which captures information about a sequence.
 ## TensorFlow Style
 Say the graph is $n$ time steps wide, so time-step is a duplicate, sharing the same variables.
 Easiest way is to build these duplicates parts in parallel. So this means represent each type of duplicate tensor(the rnn inputs, the rnn outputs (hidden state), the prediction, the loss) as a list of tensors.
