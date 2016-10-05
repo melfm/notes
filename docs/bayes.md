@@ -13,6 +13,7 @@ P(y |x_1,...,x_n) = \frac{P(y)P(x_1,...,x_n|y}{P(x_1,...,x_n}
 \end{equation}
 
 Different naive Bayes classifiers differ by assumptions they make regarding the distribution of $P(x_i | y).
-Due to decoupling of the class conditional feature distribution it means each distribution can be independetly estimated as a one dimensional distribution. Not only its fast it also helps to alleviate problems stemming from the curse of dimensionality.
-
+Due to decoupling of the class conditional feature distribution it means each distribution can be independently estimated as a one dimensional distribution. In other words, the algorithm breaks a multivariate problem into univariate problems
+Not only its fast it also helps to alleviate problems stemming from the curse of dimensionality.
 Although they are known as descent classifier, they are bad at estimation problems.
+
