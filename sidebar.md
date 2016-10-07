@@ -13,6 +13,7 @@
 - [Single-Layer Perceptron](#docs/SLP)
 - [MLP](#docs/mlp)
 - [RNN](#docs/rnn)
+- [TensorFlow RNN](#docs/tensorflowrnn)
 
 ## Evaluation Methods
 - [Evaluation](#docs/eval)
