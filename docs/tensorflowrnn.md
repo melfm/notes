@@ -35,7 +35,13 @@ This means graph creation is faster and you can feed batches of variable size.
 ## tf.nn.bidirectional_dynamic_rnn
 
 ## tf.nn.raw_rnn
-More primitive version of dynamic\_rnn
+More primitive version of dynamic_rnn, provides more direct access to the inputs each iteration. More control over when to start and finish reading the sequence, and what to emit for the output.
+Example usage: dynamic decoder of a seq2seq model.
+
+
+## tf.contrib.learn.TensorFlowRNNClassifier
+A wrapper for Tensorflow RNN. It accepts rnn_size, cell_type which could be rnn, gru and lstm.
+
 
 
 
