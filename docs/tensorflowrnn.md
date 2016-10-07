@@ -4,11 +4,11 @@ Tensorflow provides a number of methods for constructing Recurrent Neural Networ
 ## tf.nn.runn
 Creates a recurrent neural network specified by RNNCell cell.
 Simplest form of network :
-\begin{lstlisting}
+
 state = cell.zero_state(...)
 outputs = []
 for input\_ in inputs:
   output, state = cell(input\_, state)
   outputs.append(output)
   return (output, state)
-\end{lstlisting}
+
