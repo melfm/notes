@@ -9,9 +9,9 @@ state = cell.zero_state(...)
 
 outputs = []
 
-for input\_ in inputs:
+for input_ in inputs:
 
-  output, state = cell(input\_, state)
+  output, state = cell(input_, state)
   
   outputs.append(output)
   
@@ -47,5 +47,5 @@ A wrapper for Tensorflow RNN. It accepts rnn_size, cell_type which could be rnn,
 ## Ref: Tensorflow API
 - https://www.tensorflow.org/versions/r0.11/api_docs/python/nn.html#recurrent-neural-networks
 - https://www.tensorflow.org/versions/r0.11/api_docs/python/contrib.learn.html#TensorFlowRNNClassifier
-
+- http://www.wildml.com/2016/08/rnns-in-tensorflow-a-practical-guide-and-undocumented-features/
 
