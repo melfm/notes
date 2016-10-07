@@ -7,7 +7,7 @@ Simplest form of network :
 
 state = cell.zero_state(...)
 
-outputs = []
+outputs = [ ]
 
 for input_ in inputs:
 
