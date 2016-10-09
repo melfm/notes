@@ -22,4 +22,11 @@ For any $j$ and $s$, we define the pair of half-planes
 R_1(j,s) = {X|X_j < s} , R_2(j,s) = {X|X_j \geq s},
 \end{equation}
 
+and we seek the value of $j$ and $s$ that minimize the equation
+\begin{equation}
+\sum_{i:x_i \in R (j,s)} {(y_i -\hat{y_{R_j}})}^2 + \sum_{i:x_i \in R (j,s)} {(y_i -\hat{y_{R_j}})}^2
+\end{equation}
+
+So here we have two $\hat{y}_R$ which is mean response for the training observations in $R_1(j,s)$, and $R_2(j,s)$.
+We repeat this process, looking for the best predictor and best cutpoint. However this time instead of splitting the entire predictor space, we split one of the two previously identified regions. This process is repeated until a stopping criterion is reached.
 
