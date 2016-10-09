@@ -4,6 +4,7 @@
 - [Logistic Regression](#docs/logreg)
 - [Bayesian Classifiers](#docs/bayes)
 - [K-nearest Neighbors ](#docs/knn)
+- [Trees](#docs/trees)
 
 ## Unconstrained Optimization
 - [Optimization](#docs/unconstrained)
