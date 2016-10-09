@@ -30,3 +30,8 @@ and we seek the value of $j$ and $s$ that minimize the equation
 So here we have two $\hat{y}_R$ which is mean response for the training observations in $R_1(j,s)$, and $R_2(j,s)$.
 We repeat this process, looking for the best predictor and best cutpoint. However this time instead of splitting the entire predictor space, we split one of the two previously identified regions. This process is repeated until a stopping criterion is reached.
 
+### Tree Pruning
+The process above might yield a good prediction on the training set but likely overfits the data due to the resulting complex tree.
+A smaller tree might lead to a lower variance and better interpretation at the cost of a little bias.
+You can do this -> use thresholding to build the tree so long but then this might give you a short-sighted tree since a seeminly worthless split might be followed by a good split! So a better way is this : grow a very large tree and then prune it back in order to obtain a subtree. The goal is to select a subtree that leads to the lowest test error rate.
+Given a subtree we can estimate its stest error using cross-validation approach. But again estimating the cross-validation for every possible subtree is computationally expensive. Cost complexity pruning (aka weakest link pruning) gives a better way to do this.
