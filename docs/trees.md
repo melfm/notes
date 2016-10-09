@@ -19,5 +19,7 @@ To perform the recursive binary splitting, first select the predictor $X_j$ and 
 For any $j$ and $s$, we define the pair of half-planes
 
 \begin{equation}
-R_1(j,s) = {X|X_j < s} & R_2(j,s) = {X|X_j \geq s},
+R_1(j,s) = {X|X_j < s} , R_2(j,s) = {X|X_j \geq s},
 \end{equation}
+
+
