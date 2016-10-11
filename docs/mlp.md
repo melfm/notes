@@ -1,5 +1,11 @@
-# Softmax Regressions
+# Weight space
+- This space has one dimension per weight
+- A point in the space represents a particular setting of all the weights
+- Each training case can be represented as a hyperplane through the origin. The weights must lie on one side of this hyper-plane to get the answer correct.
 
+
+# Softmax Regressions
+This is a generalization of the logistic function, it squashes a k-dimensional vector of arbitrary real values to a k-dimensional vector of real values with ranges (0,1).
 Consider the MNIST classification. A softmax regression has two steps: first we add up the evidence of our input being in certain classes, and then we convert that evidence into probabilities.
 
 Think of bias as extra evidence, we want to able to say that some things are more likely independent of the input. The result is that the evidence for a class $i$ given an input $x$ is:
