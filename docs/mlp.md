@@ -32,6 +32,13 @@ We now differentiate this error measure to get error derivatives for weights :
 
 To do the differentiation we use the chain rule. The chain rule says that how the error changes as we change the weight will be how the output changes times how the error changes as we change the output! (the way you do it is that you cancel out the dy's... ). Note how the first term is a partial derivative, that is there are different ways of changing the output and here we are just considering the change to weight $i$.
 
+So out learning rule becomes the following :
+
+\begin{equation}
+\bigtriangleup w_i = -\epsilon \frac{\partial E}{\partial w_i}= \sum \epsilon x^{n}_{i}(t^n - y^n)
+\end{equation}
+
+We change the weights by the amount of epsilon times the derivative of the error w.r.t the weight and with a minus sign because we want the error to go down. This minus then cancels out with the minus in the above term and that gives the final expression : sum of all training cases, learning rate times input value times the difference between target and actual output.
 
 # Softmax Regressions
 This is a generalization of the logistic function, it squashes a k-dimensional vector of arbitrary real values to a k-dimensional vector of real values with ranges (0,1).
