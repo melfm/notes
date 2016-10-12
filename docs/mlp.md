@@ -7,7 +7,7 @@
 The neuron has a real-valued output which is a weighted sum of its inputs. 
 
 \begin{equation}
-y = \sum{_i} w_ x_i = w^T x
+y = \sum{_i} w_i x_i = w^T x
 \end{equation}
 
 The aim of learning is to minimize the error summed over all training cases, where the error is the squared difference between the desired output and the actual output. Using iterative methods to solve this gives us a generalized multi-layer, non-linear neural networks, despite being less efficient to compute.
@@ -23,12 +23,14 @@ We put a 1/2 in front so it cancels out with the square term when we differentia
 We now differentiate this error measure to get error derivatives for weights :
 
 \begin{equation}
-\frac{\partial E}{\partial w_i} = \frac{\partial y^n}{\partial w_i} \frac{\partial dE^n}{\partial dy^n}
+\frac{\partial E}{\partial w_i} = \frac{\partial y^n}{\partial w_i} \frac{ dE^n}{ dy^n}
 \end{equation}
 
 \begin{equation}
 = - \sum x^{n}_i (t^n - y^n)
 \end{equation}
+
+To do the differentiation we use the chain rule. The chain rule says that how the error changes as we change the weight will be how the output changes times how the error changes as we change the output! (the way you do it is that you cancel out the dy's... ). Note 
 
 
 # Softmax Regressions
