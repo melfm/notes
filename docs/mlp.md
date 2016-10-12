@@ -30,7 +30,7 @@ We now differentiate this error measure to get error derivatives for weights :
 = - \sum x^{n}_i (t^n - y^n)
 \end{equation}
 
-To do the differentiation we use the chain rule. The chain rule says that how the error changes as we change the weight will be how the output changes times how the error changes as we change the output! (the way you do it is that you cancel out the dy's... ). Note 
+To do the differentiation we use the chain rule. The chain rule says that how the error changes as we change the weight will be how the output changes times how the error changes as we change the output! (the way you do it is that you cancel out the dy's... ). Note how the first term is a partial derivative, that is there are different ways of changing the output and here we are just considering the change to weight $i$.
 
 
 # Softmax Regressions
