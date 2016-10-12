@@ -1,7 +1,5 @@
 # Weight space
-- This space has one dimension per weight
-- A point in the space represents a particular setting of all the weights
-- Each training case can be represented as a hyperplane through the origin. The weights must lie on one side of this hyper-plane to get the answer correct.
+This space has one dimension per weight. A point in the space represents a particular setting of all the weights. Each training case can be represented as a hyperplane through the origin. The weights must lie on one side of this hyper-plane to get the answer correct.
 
 # Linear neurons (linear filters)
 The neuron has a real-valued output which is a weighted sum of its inputs. 
