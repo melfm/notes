@@ -3,6 +3,22 @@
 - A point in the space represents a particular setting of all the weights
 - Each training case can be represented as a hyperplane through the origin. The weights must lie on one side of this hyper-plane to get the answer correct.
 
+# Linear neurons (linear filters)
+The neuron has a real-valued output which is a weighted sum of its inputs. 
+
+\begin{equation}
+y = \sum_i w_ x_i = w^T x
+\end{equation}
+
+The aim of learning is to minimize the error summed over all training cases, where the error is the squared difference between the desired output and the actual output. Using iterative methods to solve this gives us a generalized multi-layer, non-linear neural networks, despite being less efficient to compute.
+
+## Delta-rule
+Define the errors as the squared residuals summed over all training cases:
+
+\begin{equation}
+E = \frac{1}{2} \sum_{n \in training} {(t^n - y^n)}^2
+\end{equation}
+
 
 # Softmax Regressions
 This is a generalization of the logistic function, it squashes a k-dimensional vector of arbitrary real values to a k-dimensional vector of real values with ranges (0,1).
