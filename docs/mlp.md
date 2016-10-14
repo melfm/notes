@@ -67,6 +67,12 @@ The derivatives of the output w.r.t. the logit is simple if expressed in terms o
 \frac{dy}{dz} = y (1 - y)
 \end{equation}
 
+Now to learn the weights we need the derivative of the output w.r.t. each weight.
+Using chain rule we can get the derivatives needed for learning the weights.
+
+\begin{equation}
+\frac{\partial y}{\partial w_i} = \frac{\partial z}{\partial w_i} \frac{\partial y}{\partial z} = x_i y (1-y)
+\end{equation}
 
 # Softmax Regressions
 This is a generalization of the logistic function, it squashes a k-dimensional vector of arbitrary real values to a k-dimensional vector of real values with ranges (0,1).
