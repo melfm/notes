@@ -38,6 +38,36 @@ So out learning rule becomes the following :
 
 We change the weights by the amount of epsilon times the derivative of the error w.r.t the weight and with a minus sign because we want the error to go down. This minus then cancels out with the minus in the above term and that gives the final expression : sum of all training cases, learning rate times input value times the difference between target and actual output.
 
+# Linear neurons
+
+# Logistic neurons
+These give a real-valued output that is a smooth and bounded function of their total input.
+\begin{equation}
+z = b + \sum_i x_i w_i
+\end{equation}
+
+\begin{equation}
+ y = \frac{1}{1 + e ^{-z}}
+\end{equation}
+
+The fact that the logit function changes continuously, gives nice derivatives which makes learning easy!
+
+## The derivatices of a logistic neuron
+The derivatives of the logit, z, w.r.t. the inputs and weights :
+\begin{equation}
+\frac{\partial z}{\partial w_i} = x_i
+\end{equation}
+
+\begin{equation}
+\frac{\partial z}{\partial w_i} = w_i
+\end{equation}
+
+The derivatives of the output w.r.t. the logit is simple if expressed in terms of the output:
+\begin{equation}
+\frac{dy}{dz} = y (1 - y)
+\end{equation}
+
+
 # Softmax Regressions
 This is a generalization of the logistic function, it squashes a k-dimensional vector of arbitrary real values to a k-dimensional vector of real values with ranges (0,1).
 Consider the MNIST classification. A softmax regression has two steps: first we add up the evidence of our input being in certain classes, and then we convert that evidence into probabilities.
