@@ -74,6 +74,18 @@ Using chain rule we can get the derivatives needed for learning the weights.
 \frac{\partial y}{\partial w_i} = \frac{\partial z}{\partial w_i} \frac{\partial y}{\partial z} = x_i y (1-y)
 \end{equation}
 
+We now have the learning rule :
+\begin{equation}
+\frac{\partial E}{\partial w_i} = \sum \frac{\partial y^n}{\partial w_i} \frac{\partial E}{\partial y^n} = - \sum x^{n}_{i} y^n (1-y^n) (t^n - y^n)
+\end{equation}
+
+The way the error changes the weights, is by summing over training cases times the residual (difference between output and target) but note the middle term, this is the slope of logistic. So here we're just modifying the delta rule.
+
+# Backpropagation
+The idea is to get error derivatives w.r.t. hidden neuron activities. Each hidden activity can affect many output units and can therefore have many separate effects on the error. These effects must be combined. Once we have the error derivatives for the hidden activities, its easy to get the error derivatives for the weights going into a hidden unit.
+First we definee our error, we differentiate that and this tells us how the error changes as we change the activity of the output unit. So once we have the error derivative w.r.t. output of the hidden unit, we then want to use all the derivatives in the output layer to compute the same quantity in the hidden layer that comes before.
+The core of backpropagation is taking error derivatives in one layer, and from them computing the error derivatives that come before that. 
+
 # Softmax Regressions
 This is a generalization of the logistic function, it squashes a k-dimensional vector of arbitrary real values to a k-dimensional vector of real values with ranges (0,1).
 Consider the MNIST classification. A softmax regression has two steps: first we add up the evidence of our input being in certain classes, and then we convert that evidence into probabilities.
@@ -111,13 +123,3 @@ where $y$ is the predicted probability distribution and ${y}'$ is the true distr
 # Weight Initialization
 One should generally initialize weights with a small amount of noise for symmetry breaking and to prevent 0 gradients.
 If using ReLU neurons, it is good practce to initialize them with a slightly positive initial bias to avoid `dead neurons'.
-
-
-
-
-
-
-
-
-
-
