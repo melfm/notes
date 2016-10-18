@@ -123,3 +123,12 @@ where $y$ is the predicted probability distribution and ${y}'$ is the true distr
 # Weight Initialization
 One should generally initialize weights with a small amount of noise for symmetry breaking and to prevent 0 gradients.
 If using ReLU neurons, it is good practce to initialize them with a slightly positive initial bias to avoid `dead neurons'.
+
+
+# Ways to reduce overfitting
+- Weight-decay
+- Weight-sharing
+- Early stopping
+- Model averaging
+- Bayesian fitting of neural nets
+- Dropout
