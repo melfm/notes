@@ -5,6 +5,7 @@
 - [Bayesian Classifiers](#docs/bayes)
 - [K-nearest Neighbors ](#docs/knn)
 - [Trees](#docs/trees)
+- [Random Forests](#docs/bagrandforest)
 
 ## Unconstrained Optimization
 - [Optimization](#docs/unconstrained)
