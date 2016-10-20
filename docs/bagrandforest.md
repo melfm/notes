@@ -12,12 +12,12 @@ In contrast, an algorithm with low variance will yield similar results of applie
 However destroys the interpretability of trees.
 
 ## Bagging for classification
-With $K$ classes, the bagged predictor is the class that receives the most votes :
+With $K$ classes, the bagged predictor is the class that receives the most votes:
 \begin{equation}
 \hat{G_{bag}}(x) = arg_k max \hat{f_{bag}}(x)
 \end{equation}
 
-Here the majority of votes is not used instead we average the probabilities from individual classifiers :
+Here the majority of votes is not used instead we average the probabilities from individual classifiers:
 \begin{equation}
 \hat{p_{bag}}(x) = \frac{1}{B}\sum^{B}_{b=1} \hat{p_b}(x)
 \end{equation}
@@ -40,9 +40,9 @@ Similar to bagging but the trees are grown sequentially. Each tree is grown usin
 
 ## Boosting for classification
 Combine many weak classifiers to produce one powerful 'committe'.
-For classification into two categories labele {-1,1{,
+For classification into two categories labele {-1,1},
 \begin{equation}
-G(x) = sign \Bigg{(\sum^{M}_{m=1}\ alpha_m G_m(x))}
+G(x) = sign ((\sum^{M}_{m=1}\ alpha_m G_m(x)))
 \end{equation}
 where $G_m(x)$ is a weak learner and $\alpha_m$ are weights.
 
