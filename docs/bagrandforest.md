@@ -38,16 +38,24 @@ The OOB observation can be used to estimate the test error. So we don't need a t
 # Boosting
 Similar to bagging but the trees are grown sequentially. Each tree is grown using info from prev tree. No bootstrap involved, each tree is fit on a modified version of the original data set.
 
-## Boosting for classification
-Combine many weak classifiers to produce one powerful 'committe'.
+## Adaboost
+Earliest boosting alg for 2 classes only.
+A weak classifier is one whose error rate is only slightly better than random guessing. e.g. tree stump (a tree with a single split)
+Combine many weak classifiers to produce one powerful 'committe'. The weak classifiers do not have equal weight.
 For classification into two categories labele {-1,1},
 \begin{equation}
-G(x) = sign ((\sum^{M}_{m=1}\ alpha_m G_m(x)))
+G(x) = sign (\sum^{M}_{m=1}\ alpha_m G_m(x))
 \end{equation}
 where $G_m(x)$ is a weak learner and $\alpha_m$ are weights.
 
-## Adaboost
-Earliest boosting alg for 2 classes only.
+Adaboost algorithm, ommitted here but basically we initialize the weights, for $M$ number of classifiers, we do the fitting and compute the error and whatnot, upate the weights and in the end for the final classification we take a sum of these classifiers.
+## Updating the weights
+\begin{equation}
+w_i = w_i exp[\alpha_mI(y_i \neq G_m (x_i))]
+\end{equation}
+
+So if classified correcty, the weight of an observation remains unchanged,
+If classified incorrectly, the weight is increased by multiplying with $exp(alpha_m)$, where alpha varies with the degree of misclassification.
 
 # Forward Stagewise Additive Modeling
 Generally boosting fits an additive model
