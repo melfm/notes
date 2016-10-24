@@ -79,14 +79,24 @@ AdaBoost is essentially a forward stagewise additive model where the objective f
 \begin{equation}
 L(y, f(x)) = exp(-tf(x))
 \end{equation}
-Based on this boosting variants can be developed so we can change base or loss function.
-Depending on what loss function we pick, we may penalize incorrect classifications more heavily for instance.
-Some examples are the following functions :
+Based on this boosting variants can be developed like changing base or loss function.
 
-- Misclassification  $I(sign(f) \neq y)
+Typical loss functions for Regression :
+
+- Squared error $(y - f)^2$
+- residual error/asbolute loss $|y - f(x)|$ represents the goodness of regression
+- Huber loss
+
+Typical loss functions for classification :
+
+- Margin error $yf(x)$ represents goodness of classification, penalize large negative margin and encourage positive margin.
+- Misclassification  $I(sign(f) \neq y)$
 - Exponential  $exp(-yf)$
 - Binom deviance $log(1+exp(-2yf))
-- Squared error $(y - f)^2$
-- Support vector  $max(0,1 - yf)$
+- Support vector  $max(0,1 - yf)$  or soft-margin loss: $(1 − yf)I(yf > 1)$ (SVM)
 
-If you draw these and compare their robustness.
+The choice of loss function is related to computation complexity and robustness of the algorithm.
+So for example square error loss is not suitable for classification, because it penalizes correctly classified data as heavily as misclassified ones!
+
+
+Resources : Boosting [https://www.cs.cmu.edu/~epxing/Class/10701-08s/recitation/boosting.pdf]
