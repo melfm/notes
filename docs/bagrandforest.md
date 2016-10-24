@@ -77,7 +77,7 @@ So instead we optimize over one single base function and at each iteration we fi
 
 AdaBoost is essentially a forward stagewise additive model where the objective function is the exponential loss.
 \begin{equation}
-L(y, f(x)) = exp(-tf(x))
+L(y, f(x)) = exp(-yf(x))
 \end{equation}
 Based on this boosting variants can be developed like changing base or loss function.
 
@@ -98,5 +98,22 @@ Typical loss functions for classification :
 The choice of loss function is related to computation complexity and robustness of the algorithm.
 So for example square error loss is not suitable for classification, because it penalizes correctly classified data as heavily as misclassified ones!
 
+# Logit Boost
+So for the forward stagewise algorithm we needed to estimate $f_{m-1}(x_i)$.
+For logit the loss function is the deviance which is the binomial log likelihood. Because we fit the model sequentially it is re-written as $p$. This is essentially the expit function :
+\begin{equation}
+p = \frac{e^{f(x)}}{1 + e^{f(x)}}
+\end{equation}
 
-Resources : Boosting [https://www.cs.cmu.edu/~epxing/Class/10701-08s/recitation/boosting.pdf]
+# MART boosting
+Multiple Additive Regression Trees, using trees with $J$ nodes estimate $f_m$.
+So for our $M$ iterations(recall $M$ is the number of boosting iterations), we fit a regression tree, computing residuals and updating $f_m$.
+
+
+
+
+
+Resources : 
+- Boosting 
+[https://www.cs.cmu.edu/~epxing/Class/10701-08s/recitation/boosting.pdf]
+http://www.ece.rice.edu/~fk1/classes/ELEC697/Lec_17n18_Boosting.pdf
