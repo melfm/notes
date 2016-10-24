@@ -44,7 +44,7 @@ A weak classifier is one whose error rate is only slightly better than random gu
 Combine many weak classifiers to produce one powerful 'committe'. The weak classifiers do not have equal weight.
 For classification into two categories labele {-1,1},
 \begin{equation}
-G(x) = sign (\sum^{M}_{m=1}\ alpha_m G_m(x))
+G(x) = sign (\sum^{M}_{m=1}\alpha_m G_m(x))
 \end{equation}
 where $G_m(x)$ is a weak learner and $\alpha_m$ are weights.
 
@@ -64,5 +64,14 @@ f(x) = \sum^{M}_{m=1} \beta_mb(x; \gamma_m)
 \end{equation}
 $b()$ are basis functions i.e. weak learners, gamma tunes the basis function.
 
-TBC
+Here we take the following :
+\begin{equation}
+G(x) = sign (\sum^{M}_{m=1}\alpha_m G_m(x))
+\end{equation}
+
+$x$ is the input data; ${\beta_m, \gamma_m}$ are model parameters;
+$b_m(x;\gamma_y)$ are any arbitrary function of $x$.
+We estimate $b_m(x;\gamma_y)$ using say some loss function which measures prediction errors over training data.
+The problem is directly optimizing such loss function is difficult for all $M$ iterations simultaneously.
+So instead we optimize over one single base function and at each iteration we find the best fit to the 'residual' from the previous iteration. The basic idea is sequentially adding new base functions without changing the parameters that have been added.
 
