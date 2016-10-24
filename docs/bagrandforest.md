@@ -75,3 +75,18 @@ We estimate $b_m(x;\gamma_y)$ using say some loss function which measures predic
 The problem is directly optimizing such loss function is difficult for all $M$ iterations simultaneously.
 So instead we optimize over one single base function and at each iteration we find the best fit to the 'residual' from the previous iteration. The basic idea is sequentially adding new base functions without changing the parameters that have been added.
 
+AdaBoost is essentially a forward stagewise additive model where the objective function is the exponential loss.
+\begin{equation}
+L(y, f(x)) = exp(-tf(x))
+\end{equation}
+Based on this boosting variants can be developed so we can change base or loss function.
+Depending on what loss function we pick, we may penalize incorrect classifications more heavily for instance.
+Some examples are the following functions :
+
+- Misclassification  $I(sign(f) \neq y)
+- Exponential  $exp(-yf)$
+- Binom deviance $log(1+exp(-2yf))
+- Squared error $(y - f)^2$
+- Support vector  $max(0,1 - yf)$
+
+If you draw these and compare their robustness.
