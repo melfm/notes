@@ -57,7 +57,7 @@ w_i = w_i exp[\alpha_mI(y_i \neq G_m (x_i))]
 So if classified correcty, the weight of an observation remains unchanged,
 If classified incorrectly, the weight is increased by multiplying with $exp(alpha_m)$, where alpha varies with the degree of misclassification.
 
-# Forward Stagewise Additive Modeling
+## Forward Stagewise Additive Modeling
 Generally boosting fits an additive model
 \begin{equation}
 f(x) = \sum^{M}_{m=1} \beta_mb(x; \gamma_m)
@@ -98,19 +98,24 @@ Typical loss functions for classification :
 The choice of loss function is related to computation complexity and robustness of the algorithm.
 So for example square error loss is not suitable for classification, because it penalizes correctly classified data as heavily as misclassified ones!
 
-# Logit Boost
+## Logit Boost
 So for the forward stagewise algorithm we needed to estimate $f_{m-1}(x_i)$.
 For logit the loss function is the deviance which is the binomial log likelihood. Because we fit the model sequentially it is re-written as $p$. This is essentially the expit function :
 \begin{equation}
 p = \frac{e^{f(x)}}{1 + e^{f(x)}}
 \end{equation}
 
-# MART boosting
+## MART boosting
 Multiple Additive Regression Trees, using trees with $J$ nodes estimate $f_m$.
 So for our $M$ iterations(recall $M$ is the number of boosting iterations), we fit a regression tree, computing residuals and updating $f_m$.
 
 
+## Regularization
+Fit less aggressively to avoid overfitting. It can take several forms such as shrinking and adding a penalty to a loss function to penalize highly complex models.
 
+## Bagging
+In the context of boosting, bagging refers to the following :
+Build each tree with a random subset of observations. Each tree then uses a different random subset. The fraction is then the tuning parameter.
 
 
 Resources : 
