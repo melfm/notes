@@ -1,17 +1,12 @@
 # Tensorflow 
-### Printing stuff
-import tensorflow as tf
-sess = tf.InteractiveSession()
-# Some tensor we want to print the value of
-a = tf.constant([1.0, 3.0])
-# Add print operation
-a = tf.Print(a, [a], message="This is a: ")
-# Add more elements of the graph using a
-b = tf.add(a, a).eval()
+## Classification
+- sigmoid_cross_entropy_with_logits : Measures probability error in discrete classification tasks in which each class is independent and not mutually exclusive like multilabel classification where a picture can contain both a cat and a dog at the same time
+- softmax_cross_entropy_with_logits : Measures probabilty error in discrete classification tasks in which classes are mutually exclusive, like 0 or 1 and not both.
+A few notes : Although the classes are mutually exclusive, their probabilities need not be.
+This also expects unscaled logits, do not call with the output of softmax as it will produce incorrect results.
 
-
-
-
+- sparse_softmax_cross_entropy_with_logits: Same as above but the probability of a given label is considered exclusive.
+That is soft classes are not allowed (?) and label vector must provide a single specific index.
 
 # RNN APIs
 Tensorflow provides a number of methods for constructing Recurrent Neural Networks.
