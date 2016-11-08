@@ -6,6 +6,7 @@
 - [K-nearest Neighbors ](#docs/knn)
 - [Trees](#docs/trees)
 - [Random Forests](#docs/bagrandforest)
+- [SVM](#docs/svm)
 
 ## Unconstrained Optimization
 - [Optimization](#docs/unconstrained)
