@@ -8,8 +8,8 @@
 - [Random Forests](#docs/bagrandforest)
 - [SVM](#docs/svm)
 
-## Unconstrained Optimization
-- [Optimization](#docs/unconstrained)
+## Optimization
+- [Unconstrained Optimization](#docs/unconstrained)
 
 ## Neural Networks
 - [Learning Processes](#docs/learning_process)
@@ -21,5 +21,5 @@
 ## Evaluation Methods
 - [Evaluation](#docs/eval)
 
-## Dynamic System Modeling
-- [Dynamics](#docs/dynamic)
+## Dynamics 
+- [Dynamic System Modeling](#docs/dynamic)
