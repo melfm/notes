@@ -19,6 +19,7 @@
 - [TensorFlow RNN](#docs/tensorflowrnn)
 
 ## Evaluation Methods
+- [Multi-label Classification](#docs/mlc)
 - [Evaluation](#docs/eval)
 
 ## Dynamics 
