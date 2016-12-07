@@ -20,29 +20,41 @@ where $\bigtriangleup E_k$ is the energy change resulting from such a flip! If t
 The neurons of a Boltzmann machine partition into two functional groups:visible and hidden.
 The visible neurons provide an interface between the network and the environment in which it operates; wheras the hidden neurons always operate freedly. There are two modes of operation:
 
-
 1. Clamped condition, in which the visible neurons are all clamped onto specific states determined by the environment.
 
 2. Free-running condition, in which all the neurons (visible and hidden) are allowed to operate freely.
 
 
-
 ## The momentum method
 - Used to improve the learning speed when doing gradient descent. 
 - Damps oscillations in directions of high curvature.
+- Accumulates consistent components of the gradient and attenuates the fluctuating ones.
+- Enables using bigger learning rates because the learning os now more stable.
 
 Think of a ball on the area surface. The location of this ball in the horizontal plane represents the weight vector. The ball starts off stationary and initially it follows the direction of steepest descent.  So it's following the gradient happily but as soon as its got some velocity it no longer goes in the same direction as the gradient. Its momentum somehow makes it keep going in the previous direction. Our goal is to get to a low point so we must lose energy. So we introduce viscocity : Make the velocity die off gently.
 
 ### The quation of momentum
+The effect of the gradient is to increment the previous velocity. The velocity also decays by $\alpha$ :
 \begin{equation}
   v(t) = \alpha v(t - 1) - \epsilon \frac{\partial E}{\partial w} (t)
 \end{equation}
 
+The weight change is equal to the current velocity
+\begin{align}
+  \bigtriangleup w(t) = v(t) //
+  = \alpha v(t - 1) - \epsilon \frac{\partial E}{\partial w}(t)
+\end{align}
 
+The weight change can be expressed in terms of the previous weight change and the current gradient :
 
+\begin{equation}
+  = \alpha \bigtriangleup w(t - 1) - \epsilon \frac{\partial E}{\partial w}(t)
+\end{equation}
 
-
-
+### The behaviour of momentum
+- Be careful to set the momentum, at the beginning of learning there may be very large gradients.
+- In the beginning, have a small (e.g. 0.5)
+- Once the large gradients are gone and we've reached a normal phase of learning, smoothly raise it to 0.9.
 
 
 
