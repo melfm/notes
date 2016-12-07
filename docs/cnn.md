@@ -34,3 +34,38 @@ So if input is 7x7 and 3x3 filter with stride 1 and pad 0 then we get output 5x5
 
 ### Parameter Sharing
 Controls the number of parameters.
+
+### Weight tying
+
+Let's look at what weight tying does to gradients, computed using the backpropagation algorithm. Say we have three input units, $x_1$, $x_2$, $x_3$, two $logistic$ hidden units, $h_1$, $h_2$, four input to hidden weights $w_1$, $w_2$, 
+$w_3$, $w_4$ and two hidden to output weights $u_1$, $u_2$. The output neuron $y$ is a linear neuron and we are using the squared error cost function.
+Here's a diagram of this network : 
+![Simple Network](images/samplNet.png)
+
+Now consider a single training case where target output is $t$. The forward propagation steps are :
+
+
+\begin{align}
+    z_1 = w_1x_1 + w_2 x_2 \\
+    z_2 = w_3x_3 + w_4 x_4 \\
+    h_1 = \sigma (z_1) \\
+    h_2 = \sigma (z_2) \\
+    y = u_1 h_1 + u_2 h_2 \\
+    E = \frac{1}{2}(t - y)^2
+\end{align}
+
+
+
+
+
+### Pooling
+Process of combining the outputs of several hidden units to create a single hidden unit. This introduces some invariance to local transformations in the input image.
+
+### Dimension Hopping
+Dimension hopping occurs when one can take the information contained in the dimensions of some input and move this between dimensions while not changing the target. The canonical example is taking a mnist image and translating it within the image. The dimensions that contain "ink" are now different as they have now been moved to other dimensions. However the label we assign to that digit has not changed. So when the viewpoint changes, this causes "dimension hopping".
+
+
+
+
+
+
