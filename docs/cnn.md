@@ -75,8 +75,8 @@ A - Starting from the error, backpropagation works by repeated application of th
 So  $\frac{\partial E}{\partial w_2}  = -(t-y)u_1h_1(1-h_1)x_2 $ and we compute the same for $\frac{\partial E}{\partial w_1}$, then :
 \begin{align}
     \frac{\partial E}{\partial w_{tied}} = \frac{\partial E}{\partial w_1} + \frac{\partial y}{\partial w_2} \\
-    = −(t−y)u1h1(1−h1)x1−(t−y)u1h1(1−h1)\\
-    = −(t−y)(u1h1(1−h1))(x1+x2)
+    = −(t−y)u_1h_1(1−h_1)x1−(t−y)u_1h_1(1−h_1)\\
+    = −(t−y)(u_1h_1(1−h_1))(x_1+x_2)
 \end{align}
 
 So we looked at the equation to find the sequence of derivatives we would need for backpropagation. We can also look at the picture.
