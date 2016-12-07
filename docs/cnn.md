@@ -40,14 +40,15 @@ Controls the number of parameters.
 Let's look at what weight tying does to gradients, computed using the backpropagation algorithm. Say we have three input units, $x_1$, $x_2$, $x_3$, two $logistic$ hidden units, $h_1$, $h_2$, four input to hidden weights $w_1$, $w_2$, 
 $w_3$, $w_4$ and two hidden to output weights $u_1$, $u_2$. The output neuron $y$ is a linear neuron and we are using the squared error cost function.
 Here's a diagram of this network : 
+
 ![Simple Network](images/samplNet.png)
 
 Now consider a single training case where target output is $t$. The forward propagation steps are :
 
 
 \begin{align}
-    z_1 = w_1x_1 + w_2 x_2 \\
-    z_2 = w_3x_3 + w_4 x_4 \\
+    z_1 = w_1 x_1 + w_2 x_2 \\
+    z_2 = w_3 x_3 + w_4 x_4 \\
     h_1 = \sigma (z_1) \\
     h_2 = \sigma (z_2) \\
     y = u_1 h_1 + u_2 h_2 \\
