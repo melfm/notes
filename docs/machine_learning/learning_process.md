@@ -56,5 +56,15 @@ The weight change can be expressed in terms of the previous weight change and th
 - In the beginning, have a small (e.g. 0.5)
 - Once the large gradients are gone and we've reached a normal phase of learning, smoothly raise it to 0.9.
 
+## Adaptive Learning Rate
+- Each connection in the neural net should have its own adaptive learning rate
+- This is set emprirically by observing what happens to the weight on that connection when we update it
+- If the weight keeps reversing its gradient, we turn down the learning weight. If the gradient stays consistent, we turn up the learning weight.
 
+So why is this a good idea? In a deep multilayer net, the learning weights can vary widely between different weights.
+Another factor is the fan-in of the unit (that is just the shape say going from input to hidden layer, kind of looks like a fan). So the size of this fan-in determines the size of the overshoot effect that you get when you simultaneously change many of the different incoming weights to fix up some error.
 
+Tricks to make it work better ?
+- Limit the size of the gains. A reasonable range is 0.1 to 10. Or 0.1 to 100.
+- Don't want the gains to get huge because it can easily get into an instability and destroying weights.
+This was designed for full batch learning but can be applied with mini batches but they had better be pretty big mini batches. That'll ensure that the sign, changing signs of gradient aren't due to sampling error of mini batches, but rather due to the other side of the ravine.
