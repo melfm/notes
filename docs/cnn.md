@@ -46,31 +46,33 @@ Here's a diagram of this network :
 Now consider a single training case where target output is $t$. The forward propagation steps are :
 
 
-\begin{align*}
+\begin{align}
     z_1 = w_1 x_1 + w_2 x_2 \\
     z_2 = w_3 x_3 + w_4 x_4 \\
     h_1 = \sigma (z_1) \\
     h_2 = \sigma (z_2) \\
     y = u_1 h_1 + u_2 h_2 \\
     E = \frac{1}{2}(t - y)^2
-\end{align*}
+\end{align}
 
 Suppose we decide to tie the weights so that $w_1 = w_2 =w_{tied}$. 
 Q - What is the derivative of the error $E$  w.r.t. $w_{tied}$ ?
 
 A - Starting from the error, backpropagation works by repeated application of the chain rule. Let's look at $\frac{\partial E}{\partial w_2}$ and let's forget about weight tying for now :
 
-\begin{align*}
+\begin{align}
     \frac{\partial E}{\partial w_2} = \frac{\partial E}{\partial y} \frac{\partial y}{\partial h_1} \frac{\partial h_1}{\partial z_1} \frac{\partial z_1}{\partial w_2} \\
     \frac{\partial E}{\partial y} = - (t - y) \\
     \frac{\partial y}{\partial h_1} = u_1 \\
     \frac{\partial h_1}{\partial z_1} = h_1 (1 - h_1) \\
     \frac{\partial z_1}{\partial w_2} = x_2
-\end{align*}
+\end{align}
 
 So  $\frac{\partial E}{\partial w_2}  = -(t-y)u_1h_1(1-h_1)x_2 $ and we compute the same for $\frac{\partial E}{\partial w_1}$, then :
-\begin{align}
-    \frac{\partial E}{\partial w_{tied}} = \frac{\partial E}{\partial w_1} + \frac{\partial y}{\partial w_2}
+\begin{alig}
+    \frac{\partial E}{\partial w_{tied}} = \frac{\partial E}{\partial w_1} + \frac{\partial y}{\partial w_2} \\
+    = −(t−y)u1h1(1−h1)x1−(t−y)u1h1(1−h1)\\
+    = −(t−y)(u1h1(1−h1))(x1+x2)
 \end{align}
 
 
