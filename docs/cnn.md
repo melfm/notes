@@ -1,9 +1,14 @@
-# ConvNets
-
+# Convolutional Neural Networks (CNNs / ConvNets)
+- Make explicit assumption that the inputs are images
+- This allows to encode certain properties into the architecture
+- Vanilla neural nets don't scale well to full images. Say image of size 32x32x3, the net would have 32*32*3 = 3072 weights.
+- 3D volumes of neurons => Layers of a CNN have neurons arranged in 3 dimensions: width, height, depth
 - Sequence of layers, every layer transforms one volume of activations to another through a differentiable function.
-- Using three main types of layers to build ConvNet architectures: Convolutional Layer, Pooling Layer and Fully-connected Layer.
 
-Example architecture :
+
+## Layers used
+Convolutional Layer, Pooling Layer, and Fully-Connected Layer
+e.g. :
 - INPUT [32x32x3] will hold the raw pixel values of the image
 - CONV layer : computes the output of neurons that are connected to local regions in the input, each computing a dot product between their weights and a small region they are connected to in the input volume. So say we use 12 filters, this results in -> [32x32x12]
 - RELU : applies an elementwise activation function such as $max(0,x)$ thresholding at zero. This leaves the volume unchanged.
@@ -69,14 +74,13 @@ A - Starting from the error, backpropagation works by repeated application of th
 \end{align}
 
 So  $\frac{\partial E}{\partial w_2}  = -(t-y)u_1h_1(1-h_1)x_2 $ and we compute the same for $\frac{\partial E}{\partial w_1}$, then :
-\begin{alig}
+\begin{align}
     \frac{\partial E}{\partial w_{tied}} = \frac{\partial E}{\partial w_1} + \frac{\partial y}{\partial w_2} \\
     = −(t−y)u1h1(1−h1)x1−(t−y)u1h1(1−h1)\\
     = −(t−y)(u1h1(1−h1))(x1+x2)
 \end{align}
 
-
-
+So we looked at the equation to find the sequence of derivatives we would need for backpropagation. We can also look at the picture.
 
 
 ### Pooling
