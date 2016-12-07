@@ -27,4 +27,22 @@ The visible neurons provide an interface between the network and the environment
 
 
 
+## The momentum method
+- Used to improve the learning speed when doing gradient descent. 
+- Damps oscillations in directions of high curvature.
+
+Think of a ball on the area surface. The location of this ball in the horizontal plane represents the weight vector. The ball starts off stationary and initially it follows the direction of steepest descent.  So it's following the gradient happily but as soon as its got some velocity it no longer goes in the same direction as the gradient. Its momentum somehow makes it keep going in the previous direction. Our goal is to get to a low point so we must lose energy. So we introduce viscocity : Make the velocity die off gently.
+
+### The quation of momentum
+\begin{equation}
+  v(t) = \alpha v(t - 1) - \epsilon \frac{\partial E}{\partial w} (t)
+\end{equation}
+
+
+
+
+
+
+
+
 
