@@ -12,7 +12,7 @@
 - [Unconstrained Optimization](#docs/optimization/unconstrained)
 
 ## Neural Networks
-- [Learning Processes](#docs/learning_process)
+- [Learning Processes](#docs/machine_learning/learning_process)
 - [Single-Layer Perceptron](#docs/machine_learning/SLP)
 - [MLP](#docs/machine_learning/mlp)
 - [RNN](#docs/machine_learning/rnn)
