@@ -38,7 +38,7 @@ So in order to compute the spatial size of the output volume, say W = input volu
 So if input is 7x7 and 3x3 filter with stride 1 and pad 0 then we get output 5x5. If stride is 2, then 3x3.
 
 ### Parameter Sharing
-Controls the number of parameters.
+Controls the number of parameters. We can dramatically reduce the number of parameters by making one reasonable assumption: If one feature is useful to compute at some spatial position (x,y), then it should be useful to compute at a different position (x2, y2). 
 
 ### Weight tying
 
@@ -49,7 +49,6 @@ Here's a diagram of this network :
 ![Simple Network](images/samplNet.png)
 
 Now consider a single training case where target output is $t$. The forward propagation steps are :
-
 
 \begin{align}
     z_1 = w_1 x_1 + w_2 x_2 \\
@@ -88,9 +87,4 @@ Process of combining the outputs of several hidden units to create a single hidd
 
 ### Dimension Hopping
 Dimension hopping occurs when one can take the information contained in the dimensions of some input and move this between dimensions while not changing the target. The canonical example is taking a mnist image and translating it within the image. The dimensions that contain "ink" are now different as they have now been moved to other dimensions. However the label we assign to that digit has not changed. So when the viewpoint changes, this causes "dimension hopping".
-
-
-
-
-
 
