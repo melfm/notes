@@ -55,6 +55,24 @@ Now consider a single training case where target output is $t$. The forward prop
     E = \frac{1}{2}(t - y)^2
 \end{align}
 
+Suppose we decide to tie the weights so that $w_1 = w_2 =w_{tied}$. 
+Q - What is the derivative of the error $E$  w.r.t. $w_{tied}$ ?
+
+A - Starting from the error, backpropagation works by repeated application of the chain rule. Let's look at $\frac{\partial E}{\partial w_2}$ and let's forget about weight tying for now :
+
+\begin{align}
+    \frac{\partial E}{\partial w_2} = \frac{\partial E}{\partial y} \frac{\partial y}{\partial h_1} \frac{\partial h_1}{\partial z_1} \frac{\partial z_1}{\partial w_2} \\
+    \frac{\partial E}{\partial y} = - (t - y) \\
+    \frac{\partial y}{\partial h_1} = u_1 \\
+    \frac{\partial h_1}{\partial z_1} = h_1 (1 - h_1) \\
+    \frac{\partial z_1}{\partial w_2} = x_2
+\end{align}
+
+So  $\frac{\partial E}{\partial w_2}  = -(t-y)u_1h_1(1-h_1)x_2 $ and we compute the same for $\frac{\partial E}{\partial w_1}$, then :
+\begin{align}
+    \frac{\partial E}{\partial w_{tied}} = \frac{\partial E}{\partial w_1} + \frac{\partial y}{\partial w_2}
+\end{align}
+
 
 
 
