@@ -41,7 +41,7 @@ The effect of the gradient is to increment the previous velocity. The velocity a
 
 The weight change is equal to the current velocity
 \begin{align}
-  \bigtriangleup w(t) = v(t) //
+  \bigtriangleup w(t) = v(t) \\
   = \alpha v(t - 1) - \epsilon \frac{\partial E}{\partial w}(t)
 \end{align}
 
@@ -60,6 +60,14 @@ The weight change can be expressed in terms of the previous weight change and th
 - Each connection in the neural net should have its own adaptive learning rate
 - This is set emprirically by observing what happens to the weight on that connection when we update it
 - If the weight keeps reversing its gradient, we turn down the learning weight. If the gradient stays consistent, we turn up the learning weight.
+
+\begin{align}
+    \bigtriangleup w_{ij} = -\epsilon g_{ij} \frac{\partial E}{\partial w_{ij}} \\
+    if \Bigg( \frac{\partial E}{\partial w_{ij}}(t) \frac{\partial E}{\partial w_{ij}} (t-1) \Bigg) > 0 \\
+    then g_{ij}(t) = g_{ij} (t - 1) + .05 \\
+    else g_{ij}(t) = g_{ij} (t - 1) * .95
+\end{align}
+  
 
 So why is this a good idea? In a deep multilayer net, the learning weights can vary widely between different weights.
 Another factor is the fan-in of the unit (that is just the shape say going from input to hidden layer, kind of looks like a fan). So the size of this fan-in determines the size of the overshoot effect that you get when you simultaneously change many of the different incoming weights to fix up some error.
