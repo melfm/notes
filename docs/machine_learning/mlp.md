@@ -39,3 +39,102 @@ So out learning rule becomes the following :
 We change the weights by the amount of epsilon times the derivative of the error w.r.t the weight and with a minus sign because we want the error to go down. This minus then cancels out with the minus in the above term and that gives the final expression : sum of all training cases, learning rate times input value times the difference between target and actual output.
 
 # Linear neurons
+
+# Logistic neurons
+These give a real-valued output that is a smooth and bounded function of their total input.
+\begin{equation}
+z = b + \sum_i x_i w_i
+\end{equation}
+
+\begin{equation}
+ y = \frac{1}{1 + e ^{-z}}
+\end{equation}
+
+The fact that the logit function changes continuously, gives nice derivatives which makes learning easy!
+
+## The derivatices of a logistic neuron
+The derivatives of the logit, z, w.r.t. the inputs and weights :
+\begin{equation}
+\frac{\partial z}{\partial w_i} = x_i
+\end{equation}
+
+\begin{equation}
+\frac{\partial z}{\partial w_i} = w_i
+\end{equation}
+
+The derivatives of the output w.r.t. the logit is simple if expressed in terms of the output:
+\begin{equation}
+\frac{dy}{dz} = y (1 - y)
+\end{equation}
+
+Now to learn the weights we need the derivative of the output w.r.t. each weight.
+Using chain rule we can get the derivatives needed for learning the weights.
+
+\begin{equation}
+\frac{\partial y}{\partial w_i} = \frac{\partial z}{\partial w_i} \frac{\partial y}{\partial z} = x_i y (1-y)
+\end{equation}
+
+We now have the learning rule :
+\begin{equation}
+\frac{\partial E}{\partial w_i} = \sum \frac{\partial y^n}{\partial w_i} \frac{\partial E}{\partial y^n} = - \sum x^{n}_{i} y^n (1-y^n) (t^n - y^n)
+\end{equation}
+
+The way the error changes the weights, is by summing over training cases times the residual (difference between output and target) but note the middle term, this is the slope of logistic. So here we're just modifying the delta rule.
+
+# Backpropagation
+The idea is to get error derivatives w.r.t. hidden neuron activities. Each hidden activity can affect many output units and can therefore have many separate effects on the error. These effects must be combined. Once we have the error derivatives for the hidden activities, its easy to get the error derivatives for the weights going into a hidden unit.
+First we definee our error, we differentiate that and this tells us how the error changes as we change the activity of the output unit. So once we have the error derivative w.r.t. output of the hidden unit, we then want to use all the derivatives in the output layer to compute the same quantity in the hidden layer that comes before.
+The core of backpropagation is taking error derivatives in one layer, and from them computing the error derivatives that come before that.
+
+# Softmax Regressions
+This is a generalization of the logistic function, it squashes a k-dimensional vector of arbitrary real values to a k-dimensional vector of real values with ranges (0,1).
+Consider the MNIST classification. A softmax regression has two steps: first we add up the evidence of our input being in certain classes, and then we convert that evidence into probabilities.
+
+Think of bias as extra evidence, we want to able to say that some things are more likely independent of the input. The result is that the evidence for a class $i$ given an input $x$ is:
+
+\begin{equation}
+evidence_i = \sum_j W_{i,j}x_j + b_i
+\end{equation}
+
+where $W_i$ is the weights and $b_i$ is the bias for class $i$, and $j$ is an index for summing over the pixels in input image $x$. To convert evidence into probabilities we use the 'softmax' function:
+
+\begin{equation}
+y = softmax(evidence)
+\end{equation}
+
+Softmax serves as an activation function, shaping the output of our linear function into probability form, that is a probability distribution over 10 cases.
+
+\begin{equation}
+y = softmax(Wx + b)
+\end{equation}
+
+
+Say we are using the squared error and the desired output is 1 and the actual output is 0.00000001, there is almost no gradient for a logistic unit to fix up the error. The other situation is where we assign probabilities to mutually exclusive class labels and we know the outputs should sum to 1, we shouldn't deprive the networ from this knowledge.
+
+Using a squared error loss function with a logistic unit is not a good idea, because,
+$E = \frac{1}{2} (y _ t)^2$, where $y = \sigma(z) = \frac{1}{1+exp(-z)}$, derivatives tend to 'plateau-out' when $y$ is close to 0 or 1. Then .
+
+\begin{equation}
+\frac{dE}{dz} = (y - 1) * y * (1 - y)
+\end{equation}
+
+Instead we are going to use a cross-entropy loss function and because of the nice derivative it doesn't suffer from this plateau problem:
+
+\begin{equation}
+E = -tlog(y) - (1- y) log(1-y)
+\end{equation}
+
+\begin{equation}
+\frac{dE}{dz} = y - t
+\end{equation}
+
+So this is what softmax does, it's a *soft* continuous version of the max function.
+
+\begin{equation}
+y_i = \frac{e^{z_i}}{\sum_{j \in group} e ^ {z_j}}
+\end{equation}
+
+So when add possibilities it will sum to 1. So we force the y's to represent a probability distribution.
+
+
+So now what is the right cost function with softmax??
