@@ -135,17 +135,30 @@ y_i = \frac{e^{z_i}}{\sum_{j \in group} e ^ {z_j}}
 \end{equation}
 
 So when add possibilities it will sum to 1. So we force the y's to represent a probability distribution.
-
-
 So now what is the right cost function with softmax??
 
 # Cross-entropy
 When we train a neural network, we need to define what it means for the model to be good. Actually we usually define the other way round, what it means for a model to be bad, called cost or loss. We then try to minimize how bad it is.
 Cross-entropy arises from thinking about information compressing codes in information theory.
 
-
 \begin{equation}
 H_{{y'}}(y) = - \sum_i {y'}_{i} log(y_i)
 \end{equation}
 
 where $y$ is the predicted probability distribution and ${y'}$ is the true distribution.
+
+The nice property is that it has a very big gradient when the target value is 1 and the output is almost zero. So if you think about a couple of cases, 0.0000001 is much better than 0.0000000001 if the correct answer is 1. So the cost function has a steep derivative when the answer is wrong and it balances the fact that the way the output changes as you change the input, dy/dz, is very flat when the answer is wrong. i.e the steepness of dC/dy balances the flatness of dy/dz.
+
+# Weight Initialization
+One should generally initialize weights with a small amount of noise for symmetry breaking and to prevent 0 gradients.
+If using ReLU neurons, it is good practce to initialize them with a slightly positive initial bias to avoid 'dead neurons'.
+
+
+# Ways to reduce overfitting
+- Weight-decay
+- Weight-sharing
+- Early stopping
+- Model averaging
+- Bayesian fitting of neural nets
+- Dropout
+
