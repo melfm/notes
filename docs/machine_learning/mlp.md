@@ -1,3 +1,7 @@
+# Testing
+
+
+
 # Weight space
 This space has one dimension per weight. A point in the space represents a particular setting of all the weights. Each training case can be represented as a hyperplane through the origin. The weights must lie on one side of this hyper-plane to get the answer correct.
 
@@ -96,7 +100,7 @@ Think of bias as extra evidence, we want to able to say that some things are mor
 evidence_i = \sum_j W_{i,j}x_j + b_i
 \end{equation}
 
-where $W_i$ is the weights and $b_i$ is the bias for class $i$, and $j$ is an index for summing over the pixels in input image $x$. To convert evidence into probabilities we use the `softmax' function:
+where $W_i$ is the weights and $b_i$ is the bias for class $i$, and $j$ is an index for summing over the pixels in input image $x$. To convert evidence into probabilities we use the 'softmax' function:
 
 \begin{equation}
 y = softmax(evidence)
