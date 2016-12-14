@@ -76,3 +76,17 @@ Tricks to make it work better ?
 - Limit the size of the gains. A reasonable range is 0.1 to 10. Or 0.1 to 100.
 - Don't want the gains to get huge because it can easily get into an instability and destroying weights.
 This was designed for full batch learning but can be applied with mini batches but they had better be pretty big mini batches. That'll ensure that the sign, changing signs of gradient aren't due to sampling error of mini batches, but rather due to the other side of the ravine.
+
+This was designed for full batch learning but can be applied with mini batches but they had better be pretty big mini batches. That'll ensure that the sign, changing signs of gradient aren't due to sampling error of mini batches, but rather due to going to the other side of the ravine.
+ 
+Difference between adaptive learning and momentum?
+Adaptive learning deals with axis-aligned effects. Momentum doesn't care about the alignment. Momentum deals with diagonal ellipses and going in the diagonal direction.
+
+## Rporp
+ - Basic method for learning the weights in a large neural network with a large redundant data set.
+ - A way to deal with the fact that gradients vary widely in their magnitudes.
+ - That is, the magnitude of the gradient can be very different for different weights and can change during learning. This makes it hard to choose a single global learning rate.
+ 
+ In full batch training, we can cope with these variations by just using the sign of the gradient. That makes all of the weight updates to be the same size. For issues like escaping from plateaus with small gradients this is good cuz we'll take big steps. This couldn't be achieved by just turning up the learning rate because then the steps we took for weights that had big gradients would be too big.
+
+## RMSprop
