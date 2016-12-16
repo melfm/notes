@@ -1,7 +1,7 @@
 # [Mel Notes](Your project link)
 
 ## Machine Learning
-- [Bayesian Probability](#docs/machine_learning/bayes)
+- [Bayesian Theorem](#docs/machine_learning/bayes)
 - [Logistic Regression](#docs/machine_learning/logreg)
 - [K-nearest Neighbors ](#docs/machine_learning/knn)
 - [Trees](#docs/machine_learning/trees)
@@ -21,6 +21,7 @@
 - [Evaluation](#docs/machine_learning/eval)
 
 ## Optimization
+- [Gradient Descent](#docs/optimization/gradientdesc)
 - [Unconstrained Optimization](#docs/optimization/unconstrained)
 
 ## Dynamics 
