@@ -48,11 +48,11 @@ use \frac{\partial E}{\partial w_1} + \frac{\partial E}{\partial w_2}
   - After the backward pass we add together the derivatives at all the different times for each weight.
 
 # Initial activity state
-- Learn the initial states as learned parameters.
-  - Start off with initial random guess for the initial states.
-  - At the end of each training sequence, backpropagate through time all the way to the initial states to get the gradient
+Learn the initial states as learned parameters.
+ - Start off with initial random guess for the initial states.
+ - At the end of each training sequence, backpropagate through time all the way to the initial states to get the gradient
   of the error function w.r.t. each initial state.
-  - Adjust the initial states by following the negative gradient.
+ - Adjust the initial states by following the negative gradient.
 
 # Input to RNN
 Several ways:
