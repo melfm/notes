@@ -29,5 +29,6 @@ When a hidden Markov model generates data, at each time step it must select one 
 With $N$ hidden states it can only remember $log(N)$ bits about what it generated so far.
 As the information increases, the number of required states becomes too large.
 
-
-
+# Stochastic models
+Linear dynamical systems and hidden Markov models are stochastic, but the posterior probability distribution over their hidden 
+states given the observed data so far is a deterministic function of the data.
