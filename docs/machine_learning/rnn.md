@@ -64,7 +64,38 @@ Several ways:
 - Specify desired final activities of all the units.
 - Specify desired activities of all units for the last few steps.
 
+# What the network learns
+- It learns distinct patterns of activity for each hidden unit. These patterns correspond to the nodes in the finite state automaton.
+  - Not to confuse units in a neural net with nodes in a finite state automaton. Nodes are like activity vectors.
+  - The automaton is restricted to be in exactly one state at each time. So the hidden units can have exactly one vector of activity at each time
+  
+ - RNN can emulate a finite state automatonm but it is exponentially more powerful. With $N$ hidden neurons it has $2^N$ possible binary activity vector but only $N^2$ weights (here assuming input is 2, say its a binary sum).
 
+# Training difficulty
+- In the forward pass we use squashing functions to prevent the activity vectors from exploding.
 
+![Forward pass using squashing function](../images/squashingFuncs.png)
 
+- The backward pass is completely linear. If you double the error derivatives at the final layer, all the error derivatives will double.
+- Look at the red dots on the blue curves, suppose those are the activity levels of the neurons on the forward pass.
+- When we back propagate, we use the gradients of the blue curves at those red dots.
+- Once the forward pass finishes the slope of that tangent is fixed.
+- Now we back propagate and the back propagation is like going forwards through a linear system in which the slope of the non-linearity has been fixed.
+
+# The problem of exploding or vanishing gradients
+- Of coure every time we back propagate, the slopes will be different because they were determined by the forward pass.
+- But during the back propagation, its a linear system and so it suffers from a problem of linear systems, which is when we iterate they tend to either explore or die :(
+- This means when we backpropagate through time gradients that are many steps earlier than the targets arrive will be tiny. Similarly if the weights are big, the gradients will explore. Meaning when we back propagate through time, the gradients will get huge and wipe out all your knowledge.
+
+# How to avoid
+- Can avoid by initializing the weights very carefully.
+- Altho still hard to detect that the current target output depends on an input from many time-steps ago.
+  - So RNNs have difficulty dealing with long-range dependencies.
+
+# Four effective ways to learn an RNN
+- Long Short Term Memory
+- Hessian Free optimization: Deal with the vanishing gradients problem by using a fancy optimizer that can detect directions with a tiny gradient but even smaller curvature.
+- Echo State Networks: Initialize the input to hidden, hidden to hidden and output to hidden connections very carefully so that the hidden state has a huge reservoir of weakly coupled oscillators which can be selectively driven by the input.
+- Good initialization with momentum
+  
 
