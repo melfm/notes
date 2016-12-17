@@ -5,7 +5,7 @@ All use trees as building blocks to construct more powerful prediction models.
 A bootstrap sample is a sample with replacement with the same number of observations as the original.
 
 ## Bagging
-\text{Bootstrap aggregation}, or \textit{bagging} is a method for reducing variance of a learning method.
+Bootstrap aggregation, or bagging is a method for reducing variance of a learning method.
 It aims to make the predictor less reliant on a particular sample, this reduces variance.
 This works well on learning algorithms such as decision trees since they suffer from high variance. This means that if we split the training data into two parts at random and fit a decision tree to both halves, the results we get could be quite different.
 In contrast, an algorithm with low variance will yield similar results of applied repeatedly.
