@@ -98,4 +98,21 @@ Several ways:
 - Echo State Networks: Initialize the input to hidden, hidden to hidden and output to hidden connections very carefully so that the hidden state has a huge reservoir of weakly coupled oscillators which can be selectively driven by the input.
 - Good initialization with momentum
   
+# Eco State Networks
+- Trick to initialize the connections in the recurrent neural network in such a way that it has a big reservoir 
+of coupled oscillators.
+- So provided the input, it converts that input into the states of oscillators.
+- This gets rid of the problem of learning hidden to hidden connections or input to hidden connections.
+
+The key idea is very similar to the early days perceptrons.
+- A very simple way to learn a feedforward network is to make the early layers random and fixed.
+- Then we just learn the last layer which is a linear model that uses the transformed inputs to predict output.
+- We set the hidden to hidden weights randomly so that the length of the activity vector stays the same after
+each iteration. This allows the input to echo around the network for a long time.
+- It is also important to use sparse connectivity (i.e. set most of the weights to zero)
+
+## Good aspects of ESN
+- Can be trained very fast because they just fit a linear model
+- Demonstrate the importance of a sensible weight initialization
+- Can do impressive modeling of one-dimensional time-series.
 
