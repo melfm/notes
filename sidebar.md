@@ -1,6 +1,7 @@
 # [Mel Notes](Your project link)
 
 ## Machine Learning
+- [Learning Intro](#docs/machine_learning/intro)
 - [Bayesian Theorem](#docs/machine_learning/bayes)
 - [Logistic Regression](#docs/machine_learning/logreg)
 - [K-nearest Neighbors ](#docs/machine_learning/knn)
