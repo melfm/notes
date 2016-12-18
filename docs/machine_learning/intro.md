@@ -16,7 +16,7 @@ in order to find a function $f: X \rightarrow Y$ whose test error
   Test_D(f) \equiv E_{(x,y) \approx D} [L(f(x);y)]
 \end{equation}
 
-is as low as possible. Here $L(z;y) is a loss function that measures the loss that we suffer whenever we 
+is as low as possible. Here $L(z;y)$ is a loss function that measures the loss that we suffer whenever we 
 predict $y$ as $z$. Once we find a function whose test error is small enough for our needs, the learning is 
 solved. Although it would be ideal to find the global minimizer of the test error
 
