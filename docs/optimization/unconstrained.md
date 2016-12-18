@@ -6,9 +6,9 @@ The function $E(w)$ maps the elements of $w$ into real numbers. It is a measure 
 E(w^{*}) \leq E(w)
 \end{equation}
 
-This means we need to solve an $unconstrained optimization problem$, stated as :
+This means we need to solve an unconstrained optimization problem, stated as :
 
-\textit{ Minimize the cost function E(w) with respect to the weight vector w}
+ Minimize the cost function E(w) with respect to the weight vector w
 
 The necessary condition for optimality is :
 \begin{equation}
