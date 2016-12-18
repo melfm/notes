@@ -24,8 +24,10 @@
 - [Gradient Descent](#docs/optimization/gradientdesc)
 - [Unconstrained Optimization](#docs/optimization/unconstrained)
 
-## Dynamics 
-- [Dynamic System Modeling](#docs/dynamic)
-
 ## Libraries 
 - [TensorFlow RNN](#docs/libraries/tensorflowrnn)
+
+## Derivations
+- [MART](#docs/derivations/mart)
+- [F-measure](#docs/derivations/fmeas)
+- [Optimal learning rate](#docs/derivations/optEps)
