@@ -81,8 +81,8 @@ By setting equation (\ref{eq2}) to 0 and solving for  \(\eta\):
 \eta = \frac{d^Td}{d^TQd}
 \end{equation}
 
-Now we substitute \textit{d} back in to the equation :
+Now we substitute $d$ back in to the equation :
 
-\begin{equation}\label{eq3}
+\begin{equation}
  = \frac{Qw^TQw}{Qw^TQQw} = \frac{w^TQ^2w}{w^TQ^3w}
 \end{equation}
