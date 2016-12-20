@@ -1,8 +1,11 @@
 # [Mel Notes](Your project link)
 
+## Probability Theory
+- [Bayesian Theorem](#docs/machine_learning/bayes)
+- [Hidden Markov model](#docs/machine_learning/hmm)
+
 ## Machine Learning
 - [Learning Intro](#docs/machine_learning/intro)
-- [Bayesian Theorem](#docs/machine_learning/bayes)
 - [Logistic Regression](#docs/machine_learning/logreg)
 - [K-nearest Neighbors ](#docs/machine_learning/knn)
 - [Trees](#docs/machine_learning/trees)
@@ -12,8 +15,8 @@
 ## Neural Networks
 - [Learning Processes](#docs/machine_learning/learning_process)
 - [Single-Layer Perceptron](#docs/machine_learning/SLP)
-- [Multi-Layer Perceptron](#docs/machine_learning/mlp)
-- [Hidden Markov model](#docs/machine_learning/hmm)
+- [Multi-Layer Perceptron overview](#docs/machine_learning/mlp)
+- [Neural Networks](#docs/machine_learning/neural_nets)
 - [Recurrent Neural Net](#docs/machine_learning/rnn)
 - [Convolutional Neural Net](#docs/machine_learning/cnn)
 
@@ -31,3 +34,5 @@
 - [MART](#docs/derivations/mart)
 - [F-measure](#docs/derivations/fmeas)
 - [Optimal learning rate](#docs/derivations/optEps)
+
+## References
