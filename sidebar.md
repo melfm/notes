@@ -17,6 +17,7 @@
 - [Single-Layer Perceptron](#docs/machine_learning/SLP)
 - [Multi-Layer Perceptron overview](#docs/machine_learning/mlp)
 - [Neural Networks](#docs/machine_learning/neural_nets)
+- [Backpropagation](#docs/machine_learning/backprop)
 - [Recurrent Neural Net](#docs/machine_learning/rnn)
 - [Convolutional Neural Net](#docs/machine_learning/cnn)
 
