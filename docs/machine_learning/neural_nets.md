@@ -66,3 +66,17 @@ So in early stopping, we stop when it has the right number of parameters. That i
 ![What the penalty term looks like](../images/L2weightdecay.png)
 
 ![Equations](../images/L2weightEq.png)
+
+Sometimes it works better to penalize the absolute values of the weights, like the V shape below.
+Plus to use a weight penalty that has negligible effect on large weights, because L1 allows a few large weights.
+![Equations](../images/L1weightpenalty.png)
+
+## Weight constraints
+- Instead of penalizing the squared value of each weight separately, put a constraint on the maximum squared length of the incoming weight vector of each unit.
+- Advantages over weight penalties:
+  - Easier to select the sensible value because logistic units have a natural scale (so we know what a weight of 1 means)
+  - They prevent hidden unit getting stuck near zero with all their weights being tiny and not doing anything useful.
+  - Prevent weights exploding
+N.B. The penalties are just the La Grange multiplier required to keep the constraints satisfied. 
+  
+
