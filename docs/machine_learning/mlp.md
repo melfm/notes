@@ -149,16 +149,4 @@ where $y$ is the predicted probability distribution and ${y'}$ is the true distr
 
 The nice property is that it has a very big gradient when the target value is 1 and the output is almost zero. So if you think about a couple of cases, 0.0000001 is much better than 0.0000000001 if the correct answer is 1. So the cost function has a steep derivative when the answer is wrong and it balances the fact that the way the output changes as you change the input, dy/dz, is very flat when the answer is wrong. i.e the steepness of dC/dy balances the flatness of dy/dz.
 
-# Weight Initialization
-One should generally initialize weights with a small amount of noise for symmetry breaking and to prevent 0 gradients.
-If using ReLU neurons, it is good practce to initialize them with a slightly positive initial bias to avoid 'dead neurons'.
-
-
-# Ways to reduce overfitting
-- Weight-decay
-- Weight-sharing
-- Early stopping
-- Model averaging
-- Bayesian fitting of neural nets
-- Dropout
 
