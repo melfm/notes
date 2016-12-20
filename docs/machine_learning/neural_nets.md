@@ -77,6 +77,7 @@ Plus to use a weight penalty that has negligible effect on large weights, becaus
   - Easier to select the sensible value because logistic units have a natural scale (so we know what a weight of 1 means)
   - They prevent hidden unit getting stuck near zero with all their weights being tiny and not doing anything useful.
   - Prevent weights exploding
+
 N.B. The penalties are just the La Grange multiplier required to keep the constraints satisfied. 
   
 
