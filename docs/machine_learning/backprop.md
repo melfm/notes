@@ -16,9 +16,18 @@ A variable $z$ is defined as the total input to the hidden unit before the logis
 
 \begin{align}
     z1 = w1 * x1 + w2 * x2 + b1 \\
-    z1 = 0.15 * 0.05 + 0.2 * 0.1 + 0.30 = 0.3275
+    z1 = 0.15 * 0.05 + 0.2 * 0.1 + 0.30\\
+    z1 = 0.3275
 \end{align}
 
+\begin{align}
+    z_1 = w_1 x_1 + w_2 x_2 \\
+    z_2 = w_3 x_3 + w_4 x_4 \\
+    h_1 = \sigma (z_1) \\
+    h_2 = \sigma (z_2) \\
+    y = u_1 h_1 + u_2 h_2 \\
+    E = \frac{1}{2}(t - y)^2
+\end{align}
 
 We then apply the logistic activation function to get the output of the hidden layer 1 :
 
