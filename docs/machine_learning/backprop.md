@@ -15,9 +15,10 @@ We start by feeding the values forward through the network.
 A variable $z$ is defined as the total input to the hidden unit before the logistic nonlinearity.
 
 \begin{align}
-  z1 = w1 * x1 + w2 * x2 + b1 \\
-  z1 = 0.15 * 0.05 + 0.2 * 0.1 + 0.30 = 0.3275
+    z1 = w1 * x1 + w2 * x2 + b1 \\
+    z1 = 0.15 * 0.05 + 0.2 * 0.1 + 0.30 = 0.3275
 \end{align}
+
 
 We then apply the logistic activation function to get the output of the hidden layer 1 :
 
@@ -49,4 +50,16 @@ NB. The $\frac{1}{2}$ is just there to cancel the differentiation later on.
 \begin{equation}
   E_y2 = \frac{1}{2}(0.01 - 0.7703)^2 = 0.289
 \end{equation}
+
+## Backward pass
+Backpropagation updates each of the weights so that they cause the output to be closer to the target output, thereby minimizing the error for each output neuron and the network as a whole.
+
+### Output layer
+Consider $w5$. We want to know how much a change in $w5$ affects the total error : $\frac{\partial E_{total}}{\partial w5}$
+
+Using the chain rule :
+\begin{equation}
+  \frac{\partial E_{total}}{\partial w5} = \frac{\partial E_{total}}{\partial \hat{y1}} * \frac{\partial \hat{y1}}{\partial h1} * \frac{\partial h1}{\partial w5}
+\end{equation}
+
 
