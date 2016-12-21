@@ -56,7 +56,7 @@ Let \textit{d} denote the current direction, which is the negative of the gradie
     d = - \nabla E(w(k)) = -Qw
 \end{equation}
 
-Now to compute the next iteration of the steepest descent algorithm, \(\eta\) being the generic step-length :
+Now to compute the next iteration of the steepest descent algorithm, $\eta$ being the generic step-length :
 
 \begin{align}
     E(w(k)+\eta d) &= \frac{1}{2}(w + \eta d)^TQ(w + \eta d) \\
@@ -69,7 +69,7 @@ Now to compute the next iteration of the steepest descent algorithm, \(\eta\) be
 Note that in step(7) we replaced \textit{Qw} with \textit{d} which negates the expression. We also made use of the fact that $$Q = Q^T$$.
 
 
-Optimizing the value of \(\eta\) i.e. taking the partial derivative with respect to \(\eta\) yields:
+Optimizing the value of $\eta$ i.e. taking the partial derivative with respect to $\eta$ yields:
 
 \begin{equation}\label{eq2}
 \frac{\partial E}{\partial \eta} = \eta d^TQd - d^T d 
