@@ -16,23 +16,16 @@ A variable $z$ is defined as the total input to the hidden unit before the logis
 
 \begin{align}
     z1 = w1 * x1 + w2 * x2 + b1 \\
-    z1 = 0.15 * 0.05 + 0.2 * 0.1 + 0.30\\
+    z1 = 0.15 * 0.05 + 0.2 * 0.1 + 0.30 \\
     z1 = 0.3275
-\end{align}
-
-\begin{align}
-    z_1 = w_1 x_1 + w_2 x_2 \\
-    z_2 = w_3 x_3 + w_4 x_4 \\
-    h_1 = \sigma (z_1) \\
-    h_2 = \sigma (z_2) \\
-    y = u_1 h_1 + u_2 h_2 \\
-    E = \frac{1}{2}(t - y)^2
 \end{align}
 
 We then apply the logistic activation function to get the output of the hidden layer 1 :
 
 \begin{equation}
-  h1 = \sigma (z1) = \frac{1}{1 + e ^ {- 0.3275}} = 0.5812 
+  h1 = \sigma (z1) \\
+     = \frac{1}{1 + e ^ {- 0.3275}} \\
+     = 0.5812 
 \end{equation}
 
 We repeat the same for $h2 = 0.5969$.
@@ -40,7 +33,8 @@ We repeat the same for $h2 = 0.5969$.
 \begin{align}
   y1 = w5 * h1 + w6 * h1 + b2  \\
   y1 = (0.4 * 0.5812 + 0.45 * 0.5812) + 0.6 = 1.094 \\
-  \hat{y1} = \sigma (y1) = 0.7491
+  \hat{y1} = \sigma (y1) \\
+           = 0.7491
 \end{align}
 
 Same for $out_y2 = 0.7703$.
@@ -72,4 +66,23 @@ Using the chain rule :
 \frac{\partial E_{total}}{\partial w5} = \frac{\partial E_{total}}{\partial \hat{y1}} \frac{\partial \hat{y1}}{\partial h1} \frac{\partial h1}{\partial w5} 
 \end{equation}
 
+We now calculate each piece in this equation.
+First, how much the total error change w.r.t the output :
 
+\begin{align}
+    E_{total} = \frac{1}{2}(t1 - \hat{y1})^2 + \frac{1}{2}(t2 - \hat{y2})^2 \\
+    \frac{\partial E_{total}}{\partial \hat{y1}} = 2 * \frac{1}{2} (t1 - \hat{y1})^{2-1} + 0 \\
+    = -(t1 - \hat{y1}) \\
+    =-(0.01 - 0.7491 ) \\
+    = 0.7391
+\end{align}
+
+Next, how much output $ \hat{y1}$ changes w.r.t its total net input?
+We are going to take partial derivative of the logistic function :
+
+\begin{equation}
+  \hat{y1} = \frac{1}{1 + e ^{-\hat{y1}}} \\
+  \frac{\partial \hat{y1}}{\partial h1} = \hat{y1}(1- \hat{y1}) \\
+  = 0.7391(1 - 0.7391) \\
+  = 0.1928
+\end{equation}
