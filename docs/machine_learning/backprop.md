@@ -79,7 +79,7 @@ We are going to take partial derivative of the logistic function :
   \frac{\partial \hat{y1}}{\partial h1} = \hat{y1}(1- \hat{y1}) = 0.7391(1 - 0.7391) = 0.1928
 \end{equation}
 
-Finally, how much the total net output of $ \hat{y1}$ change w.r.t. $w5$?
+Finally, how much the total net output of $\hat{y1}$ change w.r.t. $w5$?
 
 \begin{align}
   \hat{y1} = w5 x out_{h1} + w6 x out_{h2} + b2 \\
@@ -93,7 +93,7 @@ Now we can put it all together :
 \end{equation}
 
 \begin{equation} 
-\frac{\partial E_{total}}{\partial w5} = 0.7391 \* 0.1928 \* 0.5932 = 0.0845
+\frac{\partial E_{total}}{\partial w5} = 0.7391 x 0.1928 x 0.5932 = 0.0845
 \end{equation}
 
 To decrease the error we subtract this value from the current weight multiplied by the selected learning rate (0.5) :
@@ -121,7 +121,7 @@ TBC
 
 
 
-## Reference
-This was taken from here : https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/
+
+Reference : https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/
 Just slight syntax and number changes.
 
