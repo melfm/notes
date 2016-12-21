@@ -15,7 +15,7 @@ We start by feeding the values forward through the network.
 A variable $z$ is defined as the total input to the hidden unit before the logistic nonlinearity.
 
 \begin{align}
-    z1 = (w1 x1 + w2 x2 + b1) \\
+    z1 = (w1  x1 + w2  x2 + b1) \\
     z1 = (0.15 x 0.05 + 0.2 x 0.1 + 0.30) = 0.3275
 \end{align}
 
@@ -28,8 +28,8 @@ We then apply the logistic activation function to get the output of the hidden l
 We repeat the same for $h2 = 0.5969$.
 
 \begin{align}
-  y1 = w5 * h1 + w6 * h1 + b2  \\
-  y1 = (0.4 * 0.5812 + 0.45 * 0.5812) + 0.6 = 1.094 \\
+  y1 = (w5  h1 + w6  h1 + b2)  \\
+  y1 = (0.4 x 0.5812 + 0.45 x 0.5812) + 0.6 = 1.094 \\
   \hat{y1} = \sigma (y1) = 0.7491
 \end{align}
 
@@ -80,4 +80,48 @@ We are going to take partial derivative of the logistic function :
 \end{equation}
 
 Finally, how much the total net output of $ \hat{y1}$ change w.r.t. $w5$?
+
+\begin{align}
+  \hat{y1} = w5 * out_{h1} + w6 * out_{h2} + b2 \\
+  \frac{\partial \hat{y1}}{\partial w5} = 1  * out_{h1} * w5^{1-1} + 0 + 0 = 0.5932
+\end{align}
+
+Now we can put it all together :
+
+\begin{equation} 
+\frac{\partial E_{total}}{\partial w5} = \frac{\partial E_{total}}{\partial \hat{y1}} \frac{\partial \hat{y1}}{\partial h1} \frac{\partial h1}{\partial w5} 
+\end{equation}
+
+\begin{equation} 
+\frac{\partial E_{total}}{\partial w5} = 0.7391 * 0.1928 * 0.5932 = 0.0845
+\end{equation}
+
+To decrease the error we subtract this value from the current weight multiplied by the selected learning rate (0.5) :
+
+\begin{equation} 
+    w5 = w5 - \alpha * \frac{\partial E_{total}}{\partial w5} = 0.4 - 0.5 * 0.0845 = 0.3578
+\end{equation}
+
+We then repeat this process to get the new weights, $w6 = 0.4078 $, $w7 = ? $ and $w8 = ? $ :
+
+Now we need to conitnue the backpropagation, with the original weights of course.
+
+### Hidden Layer
+Now we calculate the new values for $w1$, $w2$, $w3$ and $w4$ :
+
+![Hidden Layer backporpagation](../images/backprop_hiddenL.png)
+
+
+\begin{equation} 
+\frac{\partial E_{total}}{\partial w1} = \frac{\partial E_{total}}{\partial out_{h1}} \frac{\partial out_{h1}}{\partial net_{h1}} \frac{\partial net_{h1}}{\partial w1} 
+\end{equation}
+
+
+TBC
+
+
+
+## Reference
+This was taken from here : https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/
+Just slight syntax and number changes.
 
