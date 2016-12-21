@@ -15,8 +15,8 @@ We start by feeding the values forward through the network.
 A variable $z$ is defined as the total input to the hidden unit before the logistic nonlinearity.
 
 \begin{align}
-    z1 = w1 * x1 + w2 * x2 + b1 \\
-    z1 = 0.15 * 0.05 + 0.2 * 0.1 + 0.30 \\
+    z1 = (w1 x1 + w2 x2 + b1) \\
+    z1 = (0.15 * 0.05 + 0.2 * 0.1 + 0.30) \\
     z1 = 0.3275
 \end{align}
 
@@ -82,7 +82,9 @@ We are going to take partial derivative of the logistic function :
 
 \begin{equation}
   \hat{y1} = \frac{1}{1 + e ^{-\hat{y1}}} \\
-  \frac{\partial \hat{y1}}{\partial h1} = \hat{y1}(1- \hat{y1}) \\
-  = 0.7391(1 - 0.7391) \\
+  \frac{\partial \hat{y1}}{\partial h1} = \hat{y1}(1- \hat{y1}) = 0.7391(1 - 0.7391) \\
   = 0.1928
 \end{equation}
+
+Finally, how much the total net output of $ \hat{y1}$ change w.r.t. $w5$?
+
