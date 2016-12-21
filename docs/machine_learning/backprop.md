@@ -38,7 +38,7 @@ Same for $out_y2 = 0.7703$.
 
 ## Total error
 \begin{equation}
-  E_total = \sum \frac{1}{2}(target - output)^2
+  E_{total} = \sum \frac{1}{2}(target - output)^2
 \end{equation}
 
 NB. The $\frac{1}{2}$ is just there to cancel the differentiation later on.
@@ -58,8 +58,9 @@ Backpropagation updates each of the weights so that they cause the output to be 
 Consider $w5$. We want to know how much a change in $w5$ affects the total error : $\frac{\partial E_{total}}{\partial w5}$
 
 Using the chain rule :
-\begin{equation}
-  \frac{\partial E_{total}}{\partial w5} = \frac{\partial E_{total}}{\partial \hat{y1}} * \frac{\partial \hat{y1}}{\partial h1} * \frac{\partial h1}{\partial w5}
+
+\begin{equation} 
+\frac{\partial E_{total}}{\partial w5} = \frac{\partial E_{total}}{\partial \hat{y1}} \frac{\partial \hat{y1}}{\partial h1} \frac{\partial h1}{\partial w5} 
 \end{equation}
 
 
