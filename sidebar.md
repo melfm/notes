@@ -14,12 +14,12 @@
 
 ## Neural Networks
 - [Learning Processes](#docs/machine_learning/learning_process)
-- [Single-Layer Perceptron](#docs/machine_learning/SLP)
-- [Multi-Layer Perceptron overview](#docs/machine_learning/mlp)
-- [Neural Networks](#docs/machine_learning/neural_nets)
-- [Backpropagation](#docs/machine_learning/backprop)
-- [Recurrent Neural Net](#docs/machine_learning/rnn)
-- [Convolutional Neural Net](#docs/machine_learning/cnn)
+- [Single-Layer Perceptron](#docs/machine_learning/neural_nets/SLP)
+- [Multi-Layer Perceptron overview](#docs/machine_learning/neural_nets/mlp)
+- [Neural Networks](#docs/machine_learning/neural_nets/training)
+- [Backpropagation](#docs/machine_learning/neural_nets/backprop)
+- [Recurrent Neural Net](#docs/machine_learning/neural_nets/rnn)
+- [Convolutional Neural Net](#docs/machine_learning/neural_nets/cnn)
 
 ## Evaluation Methods
 - [Multi-label Classification](#docs/machine_learning/mlc)
