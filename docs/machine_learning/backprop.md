@@ -15,8 +15,8 @@ We start by feeding the values forward through the network.
 A variable $z$ is defined as the total input to the hidden unit before the logistic nonlinearity.
 
 \begin{align}
-    z1 = (w1  x1 + w2  x2 + b1) \\
-    z1 = (0.15 x 0.05 + 0.2 x 0.1 + 0.30) = 0.3275
+    z1 = (w1  x1 + w2 \times x2 + b1) \\
+    z1 = (0.15 \times 0.05 + 0.2 \times 0.1 + 0.30) = 0.3275
 \end{align}
 
 We then apply the logistic activation function to get the output of the hidden layer 1 :
@@ -28,8 +28,8 @@ We then apply the logistic activation function to get the output of the hidden l
 We repeat the same for $h2 = 0.5969$.
 
 \begin{align}
-  y1 = (w5  h1 + w6  h1 + b2)  \\
-  y1 = (0.4 x 0.5812 + 0.45 x 0.5812) + 0.6 = 1.094 \\
+  y1 = (w5 \times h1 + w6 \times h1 + b2)  \\
+  y1 = (0.4 \times 0.5812 + 0.45 \times 0.5812) + 0.6 = 1.094 \\
   \hat{y1} = \sigma (y1) = 0.7491
 \end{align}
 
@@ -82,8 +82,8 @@ We are going to take partial derivative of the logistic function :
 Finally, how much the total net output of $\hat{y1}$ change w.r.t. $w5$?
 
 \begin{align}
-  \hat{y1} = w5 x out_{h1} + w6 x out_{h2} + b2 \\
-  \frac{\partial \hat{y1}}{\partial w5} = 1  x out_{h1} x w5^{1-1} + 0 + 0 = 0.5932
+  \hat{y1} = w5 \times out_{h1} + w6 \times out_{h2} + b2 \\
+  \frac{\partial \hat{y1}}{\partial w5} = 1  \times out_{h1} \times w5^{1-1} + 0 + 0 = 0.5932
 \end{align}
 
 Now we can put it all together :
@@ -93,13 +93,13 @@ Now we can put it all together :
 \end{equation}
 
 \begin{equation} 
-\frac{\partial E_{total}}{\partial w5} = 0.7391 x 0.1928 x 0.5932 = 0.0845
+\frac{\partial E_{total}}{\partial w5} = 0.7391 \times 0.1928 \times 0.5932 = 0.0845
 \end{equation}
 
 To decrease the error we subtract this value from the current weight multiplied by the selected learning rate (0.5) :
 
 \begin{equation} 
-    w5 = w5 - \alpha x \frac{\partial E_{total}}{\partial w5} = 0.4 - 0.5 x 0.0845 = 0.3578
+    w5 = w5 - \alpha \times \frac{\partial E_{total}}{\partial w5} = 0.4 - 0.5 \times 0.0845 = 0.3578
 \end{equation}
 
 We then repeat this process to get the new weights, $w6 = 0.4078 $, $w7 = ? $ and $w8 = ? $ :
@@ -123,5 +123,4 @@ TBC
 
 
 Reference : https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/
-Just slight syntax and number changes.
 
