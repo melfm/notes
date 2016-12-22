@@ -63,7 +63,7 @@ So in early stopping, we stop when it has the right number of parameters. That i
   
  So looking at the penalty term below, we get this parabolic cost.
 
-![What the penalty term looks like](../images/L2weightdecay.png)
+![What the penalty term looks like](../../images/L2weightdecay.png)
 
 ![Equations](../../images/L2weightEq.png)
 
