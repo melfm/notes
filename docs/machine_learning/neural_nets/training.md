@@ -58,6 +58,8 @@ squared error or cross entropy. So hard to decide but keep going until sure and 
 So in early stopping, we stop when it has the right number of parameters. That is, its optimized the trade off between fitting the true regularities in the data and fitting the spurious regularities.
 
 ## Weight decay
+Different regularization methods have different effects on the learning process. For example L2 regularization penalizes high weight values. L1 regularization penalizes weight values that do not equal zero. Adding noise to the weights during learning ensures that the learned hidden representations take extreme values. Sampling the hidden representations regularizes the network by pushing the hidden representation to be binary during the forward pass which limits the modeling capacity of the network.
+
 - Standard L2 weight penalty involves adding an extra term to the cost function that penalizes the squared weights.
   -This keeps the weights small unless they have big error derivatives
   
