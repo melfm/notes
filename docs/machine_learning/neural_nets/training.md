@@ -65,11 +65,11 @@ So in early stopping, we stop when it has the right number of parameters. That i
 
 ![What the penalty term looks like](../images/L2weightdecay.png)
 
-![Equations](../images/L2weightEq.png)
+![Equations](../../images/L2weightEq.png)
 
 Sometimes it works better to penalize the absolute values of the weights, like the V shape below.
 Plus to use a weight penalty that has negligible effect on large weights, because L1 allows a few large weights.
-![Equations](../images/L1weightpenalty.png)
+![Equations](../../images/L1weightpenalty.png)
 
 ## Weight constraints
 - Instead of penalizing the squared value of each weight separately, put a constraint on the maximum squared length of the incoming weight vector of each unit.
