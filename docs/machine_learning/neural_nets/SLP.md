@@ -1,5 +1,5 @@
 # Single-Layer Perceptron
-The perceptron is the simplest form of a neural netwrok used for classification of patterns said to be $linearly separable$ meaning that the patterns that lie on the opposite side of a hyperplane. It consists of one neuron with adjustable synaptic weights and bias. The perceptron built around built around a single neuron is limited to performing pattern classification with only two classes. By expanding the output (computation) layer of the perceptron to include more than one neuron, we may correspondingly form classification with more than two classes.
+The perceptron is the simplest form of a neural netwrok used for classification of patterns said to be linearly separable meaning that the patterns that lie on the opposite side of a hyperplane. It consists of one neuron with adjustable synaptic weights and bias. The perceptron built around built around a single neuron is limited to performing pattern classification with only two classes. By expanding the output (computation) layer of the perceptron to include more than one neuron, we may correspondingly form classification with more than two classes.
 
 
 A neural model consists of a linear combiner followed by a hard limiter (performing say the signum function). The summing node of the neuronal model computes a linear combination of the inputs applied to its synapses and also incorporates an externally applied bias, remember this bias incorporates relations independent of input. So the hard limiter input is :
@@ -27,21 +27,22 @@ w(n) = [b(n), w_1(n), w_2(n),...,w_m(n)]^T
 \end{equation}
 
 The linea combiner output is written in the form :
-\begin{align*}
+\begin{align}
 v(n) = \sum^{m}_{i=0} w_i(n)x_i(n) \\
 = w^T(n)x(n)
-\end{align*}
+\end{align}
 
-where w_0(n) represents the bias $b(n)$.
+where $w_0(n)$ represents the bias $b(n)$.
 
 The algorithm for adapting weights is formulated as follows :
-1. If the $n^{th}$ member of the training set $x(n)$ is correctly classified by the weight vector $w(n)$ computed at the $n^{th}$ iteration of the algorithm, no correction is made to the weight vector of the perceptron in accordance with the rule :
+
+If the $n^{th}$ member of the training set $x(n)$ is correctly classified by the weight vector $w(n)$ computed at the $n^{th}$ iteration of the algorithm, no correction is made to the weight vector of the perceptron in accordance with the rule :
 
 $W(n + 1) = w(n)$  if $w^T x(n) > 0$ and x(n) belongs to class $C_1$
 
 $W(n + 1) = w(n)$  if $w^T x(n) \leq 0$ and x(n) belongs to class $C_1$
 
-2. Otherwise, the weight vector of the perceptron is updated in accordance with the rule
+else, the weight vector of the perceptron is updated in accordance with the rule
 
 $W(n + 1) = w(v) - \eta(n)x(n)$  if $w^T x(n) > 0$ and x(n) belongs to class $C_1$
 

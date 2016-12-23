@@ -2,11 +2,11 @@
 
 Assume the following network :
 
-![Simple network with values](../../images/backprop_simpl_net.png)
+![Simple network with values](images/backprop_simpl_net.png)
 
 The goal is to optimize the weights so that the net can learn how to correctly map arbitrary input to outputs.
 
-![Initial values](../../images/simpl_net_init_vals.png)
+![Initial values](images/simpl_net_init_vals.png)
 
 Let's assume the above initial weights with the inputs as 0.05 and 0.1 and assume the desired output is 0.01 and 0.99.
 
@@ -109,7 +109,7 @@ Now we need to continue the backpropagation, with the original weights of course
 ### Hidden Layer
 Now we calculate the new values for $w1$, $w2$, $w3$ and $w4$ :
 
-![Hidden Layer backporpagation](../../images/backprop_hiddenL.png)
+![Hidden Layer backporpagation](images/backprop_hiddenL.png)
 
 
 \begin{equation} 

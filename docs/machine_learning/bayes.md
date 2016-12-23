@@ -16,14 +16,14 @@
 \begin{equation}
   p(w|D) = \frac{p(D|w)p(w)}{p(D)}
 \end{equation}
-- This allows us to evaluate the uncertainty in $w$ \textit{after} we have observed $D$ in the form of the \textit{posterior}
+- This allows us to evaluate the uncertainty in $w$ after we have observed $D$ in the form of the posterior
 probability $p(w|D)$.
-- The quantity $p(D|w)$ is evaluated for the observed data set $D$ and can be viewed as a function of the parameter vector $w$,in which case it is called the \textit{likelihood function}.
-- It expresses how probable the observed data set is for different settings of the parameter vector $w$.
+- The quantity $p(D|w)$ is evaluated for the observed data set $D$ and can be viewed as a function of the parameter vector $w$,in which case it is called the likelihood function.
+- It expresses how probable the observed data set is for different settings of the parameter.
 - The denominator is the normalization constant which ensures that the posterior distribution on the left-hand side is a valid probability density and integrates to one.
 - We can state Bayes' theorem :
 \begin{equation}
-  posterior $\alpha$ likelihood $\alpha$ prior
+  posterior \alpha likelihood \alpha prior
 \end{equation}
 - Integrating both sides w.r.t. $w$ we can express the denominator in Bayes' theorem in terms of the prior distribution and the likelihood function
 \begin{equation}
@@ -35,25 +35,25 @@ probability $p(w|D)$.
 The negative log of the likelihood function. Because the negative logarithm is a monotonically decreasing function, maximizing the likelihood is equivalent to minimizing the error.
 
 ## Coin tossing example
-- Say we know nothing about coins except that each tossing produces head with probability $p$ and rail $p-1$.
+- Say we know nothing about coins except that each tossing produces head with probability $p$ and tail $p-1$.
 - Suppose we observe 100 tosses and 53 are head :
 
 ### Maximum likelihood
 Frequentist estimator in which $w$ is set to the value that maximizes the likelihood function $p(D|w)$.
-So in the example above if we pick $P$ that makes the observation of 53 heads most probable $p=0.53$.
+So in the example above if we pick $P$ that makes the observation of 53 heads, then most probable $p=0.53$.
 
 \begin{align}
-  P(D) = p^53 (1- p)^47 \\
-  \frac{dP(D)}{dp} = 53p^52(1-p)47 - 47p^53(1-p)46 \\
-  = (frac{53}{p} - \frac{47}{1-p})[p^53(1-p)47] \\
-  = 0 if p=.53
+  P(D) = p^{53} (1- p)^{47} \\
+  \frac{dP(D)}{dp} = 53p^{52}(1-p)^{47} - 47p^{53}(1-p)^{46} \\
+  = (\frac{53}{p} - \frac{47}{1-p})[p^{53}(1-p)^{47}] \\
+  = 0 if p =.53
 \end{align}
 
-Problem with this approach, that is picking parameters that are most likely to generate the data, is that :
-- What if we tossed the coin once and got 1 head? $p=1$ is not sensible. Surely $p=0.5$ seems better.
+Problem with this approach, that is picking parameters that are most likely to generate the data:
+- What if we tossed the coin once and got 1 head? $p=1$ is not sensible. $p=0.5$ seems better.
 - Our computation of probabilities will work much better if we take into account uncertainty.
 
-## Using a distribution
+### Using a distribution
 - Start with a prior distribution over $p$. Let's use a uniform distribution.
 - Multiply the prior probability by the probability of observing a head.
 - Normalize so that the area is 1.
@@ -61,7 +61,7 @@ Problem with this approach, that is picking parameters that are most likely to g
 ![Prior distribution after observing a head](../images/distributions_head.png)
 
 - Now the green line shows the probability that we get a tail. So if $p=1$ the probability of getting tail is zero.
-So we multiply our prior by the likelihood term and then we get a nice curve. Last step is normalized.
+So we multiply our prior by the likelihood term and then we get a nice curve which looks more sensible. Last step is normalized.
 
 ![Prior distribution after observing a tail](../images/distribution_tail.png)
 
@@ -83,11 +83,11 @@ Some notation :
 Naive Bayes methods are a set of supervised learning algorithms based on applying Bayes' theorem with the 'naive' assumption of independence between every pair of features. Given a class variable $y$ and a dependent feature vector $x_1$ through $x_n$ Bayes' theorem states the following relationship:
 
 \begin{equation}
-P(y |x_1,...,x_n) = \frac{P(y)P(x_1,...,x_n|y}{P(x_1,...,x_n}
+P(y |x_1,...,x_n) = \frac{P(y)P(x_1,...,x_n|y)}{P(x_1,...,x_n)}
 \end{equation}
 
-Different naive Bayes classifiers differ by assumptions they make regarding the distribution of $P(x_i | y)$.
-Due to decoupling of the class conditional feature distribution it means each distribution can be independently estimated as a one dimensional distribution. In other words, the algorithm breaks a multivariate problem into univariate problems
+Different naive Bayes classifiers differ by assumptions they make regarding the distribution of $P(x_i | y)$
+Due to decoupling of the class conditional feature distribution it means each distribution can be independently estimated as a one dimensional distribution. In other words, the algorithm breaks a multivariate problem into univariate problems.
 Not only its fast it also helps to alleviate problems stemming from the curse of dimensionality.
 Although they are known as descent classifier, they are bad at estimation problems.
 

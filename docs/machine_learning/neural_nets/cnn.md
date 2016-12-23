@@ -46,7 +46,7 @@ Let's look at what weight tying does to gradients, computed using the backpropag
 $w_3$, $w_4$ and two hidden to output weights $u_1$, $u_2$. The output neuron $y$ is a linear neuron and we are using the squared error cost function.
 Here's a diagram of this network : 
 
-![Simple Network](../../images/samplNet.png)
+![Simple Network](images/samplNet.png)
 
 Now consider a single training case where target output is $t$. The forward propagation steps are :
 

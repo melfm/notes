@@ -6,7 +6,7 @@ For example it is simply not clear how to directly write a computer program that
 However given large amount of data it is possible to approximate the input-output relationship
 implied by the training examples.
 
-Let $X$ be an input space, $Y$ an output space, $D$ the data distribution over $X x Y$ that describes
+Let $X$ be an input space, $Y$ an output space, $D$ the data distribution over $X \times Y$ that describes
 the data that we tend to observe.
 For every drawn $(x,y)$ from $D$, the variable $x$ is a typical input and $y$ the desired output.
 The goal of supervised learning is to use a training set consisting of $n$ of i.i.d. samples,
@@ -21,7 +21,7 @@ predict $y$ as $z$. Once we find a function whose test error is small enough for
 solved. Although it would be ideal to find the global minimizer of the test error
 
 \begin{equation}
-  f^* =  \underset{f is a function}{arg min} Test_D(f)
+  f^* =  {arg min} Test_D(f)
 \end{equation}
 
 doing so is fundamentally impossible. We can approximate the test error with the training error 

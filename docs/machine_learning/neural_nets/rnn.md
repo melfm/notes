@@ -73,7 +73,7 @@ Several ways:
 ### Training difficulty
 - In the forward pass we use squashing functions to prevent the activity vectors from exploding.
 
-![Forward pass using squashing function](../images/squashingFuncs.png)
+![Forward pass using squashing function](images/squashingFuncs.png)
 
 - The backward pass is completely linear. If you double the error derivatives at the final layer, all the error derivatives will double.
 - Look at the red dots on the blue curves, suppose those are the activity levels of the neurons on the forward pass.

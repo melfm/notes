@@ -38,7 +38,6 @@ So out learning rule becomes the following :
 
 We change the weights by the amount of epsilon times the derivative of the error w.r.t the weight and with a minus sign because we want the error to go down. This minus then cancels out with the minus in the above term and that gives the final expression : sum of all training cases, learning rate times input value times the difference between target and actual output.
 
-# Linear neurons
 
 # Logistic neurons
 These give a real-valued output that is a smooth and bounded function of their total input.
@@ -83,7 +82,7 @@ The way the error changes the weights, is by summing over training cases times t
 
 # Backpropagation
 The idea is to get error derivatives w.r.t. hidden neuron activities. Each hidden activity can affect many output units and can therefore have many separate effects on the error. These effects must be combined. Once we have the error derivatives for the hidden activities, its easy to get the error derivatives for the weights going into a hidden unit.
-First we definee our error, we differentiate that and this tells us how the error changes as we change the activity of the output unit. So once we have the error derivative w.r.t. output of the hidden unit, we then want to use all the derivatives in the output layer to compute the same quantity in the hidden layer that comes before.
+First we define our error, we differentiate that and this tells us how the error changes as we change the activity of the output unit. So once we have the error derivative w.r.t. output of the hidden unit, we then want to use all the derivatives in the output layer to compute the same quantity in the hidden layer that comes before.
 The core of backpropagation is taking error derivatives in one layer, and from them computing the error derivatives that come before that.
 
 # Softmax Regressions
@@ -112,16 +111,16 @@ y = softmax(Wx + b)
 Say we are using the squared error and the desired output is 1 and the actual output is 0.00000001, there is almost no gradient for a logistic unit to fix up the error. The other situation is where we assign probabilities to mutually exclusive class labels and we know the outputs should sum to 1, we shouldn't deprive the networ from this knowledge.
 
 Using a squared error loss function with a logistic unit is not a good idea, because,
-$E = \frac{1}{2} (y _ t)^2$, where $y = \sigma(z) = \frac{1}{1+exp(-z)}$, derivatives tend to 'plateau-out' when $y$ is close to 0 or 1. Then .
+$E = \frac{1}{2} (y _ t)^2$, where $y = \sigma(z) = \frac{1}{1+exp^{(-z)}}$, derivatives tend to 'plateau-out' when $y$ is close to 0 or 1. Then .
 
 \begin{equation}
-\frac{dE}{dz} = (y - 1) * y * (1 - y)
+\frac{dE}{dz} = (y - 1) \times y \times (1 - y)
 \end{equation}
 
 Instead we are going to use a cross-entropy loss function and because of the nice derivative it doesn't suffer from this plateau problem:
 
 \begin{equation}
-E = -tlog(y) - (1- y) log(1-y)
+E = -t \times log(y) - (1- y) log(1-y)
 \end{equation}
 
 \begin{equation}
@@ -147,6 +146,6 @@ H_{{y'}}(y) = - \sum_i {y'}_{i} log(y_i)
 
 where $y$ is the predicted probability distribution and ${y'}$ is the true distribution.
 
-The nice property is that it has a very big gradient when the target value is 1 and the output is almost zero. So if you think about a couple of cases, 0.0000001 is much better than 0.0000000001 if the correct answer is 1. So the cost function has a steep derivative when the answer is wrong and it balances the fact that the way the output changes as you change the input, dy/dz, is very flat when the answer is wrong. i.e the steepness of dC/dy balances the flatness of dy/dz.
+The nice property is that it has a very big gradient when the target value is 1 and the output is almost zero. So if you think about a couple of cases, 0.0000001 is much better than 0.0000000001 if the correct answer is 1. So the cost function has a steep derivative when the answer is wrong and it balances the fact that the way the output changes as you change the input, $\frac{dy}{dz}$, is very flat when the answer is wrong. i.e the steepness of $\frac{dC}{dy}$ balances the flatness of $\frac{dy}{dz}$.
 
 

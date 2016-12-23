@@ -13,13 +13,14 @@
 - [SVM](#docs/machine_learning/svm)
 
 ## Neural Networks
-- [Learning Processes](#docs/machine_learning/learning_process)
 - [Single-Layer Perceptron](#docs/machine_learning/neural_nets/SLP)
-- [Multi-Layer Perceptron overview](#docs/machine_learning/neural_nets/mlp)
-- [Neural Networks](#docs/machine_learning/neural_nets/training)
-- [Backpropagation](#docs/machine_learning/neural_nets/backprop)
+- [Neural Networks](#docs/machine_learning/neural_nets/mlp)
+- [Training techniques](#docs/machine_learning/neural_nets/training)
+- [Learning Processes](#docs/machine_learning/learning_process)
+- [Backpropagation Example](#docs/machine_learning/neural_nets/backprop)
 - [Recurrent Neural Net](#docs/machine_learning/neural_nets/rnn)
 - [Convolutional Neural Net](#docs/machine_learning/neural_nets/cnn)
+- [Full Bayesian & Monte Carlo](#docs/machine_learning/neural_nets/monte_carlo)
 
 ## Evaluation Methods
 - [Multi-label Classification](#docs/machine_learning/mlc)
@@ -36,4 +37,3 @@
 - [F-measure](#docs/derivations/fmeas)
 - [Optimal learning rate](#docs/derivations/optEps)
 
-## References

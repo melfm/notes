@@ -1,15 +1,18 @@
 # Bagging, Random Forests, Boosting
-All use trees as building blocks to construct more powerful prediction models.
+Techniques used to construct more powerful prediction models.
 
-# Bootstrap
-A bootstrap sample is a sample with replacement with the same number of observations as the original.
+## Bootstrap
+Sample with replacement with the same number of observations as the original.
 
 ## Bagging
-Bootstrap aggregation, or bagging is a method for reducing variance of a learning method.
+Bootstrap aggregation (bagging) is a method for reducing variance of a learning method.
 It aims to make the predictor less reliant on a particular sample, this reduces variance.
 This works well on learning algorithms such as decision trees since they suffer from high variance. This means that if we split the training data into two parts at random and fit a decision tree to both halves, the results we get could be quite different.
 In contrast, an algorithm with low variance will yield similar results of applied repeatedly.
-However destroys the interpretability of trees.
+If used with trees, one downside is that it destroys the interpretability of trees.
+
+- Train differnet models on different subsets of the data.
+- Get these subsets by sampling the training set with replacement: a,b,c,d,e ->a c c d d
 
 ## Bagging for classification
 With $K$ classes, the bagged predictor is the class that receives the most votes:
@@ -36,6 +39,15 @@ Each bootstrap sample (one bag) on average uses 2/3 of their observations leavin
 The OOB observation can be used to estimate the test error. So we don't need a train/test split.
 
 # Boosting
+- Train a sequence of low capacity models. 
+- Weight the training cases differently for each model in the sequence.
+- We up weight the cases the previous model got wrong and we down weight the cases the model got right.
+- So that the next model in the sequence doesn't waste its time trying to model cases that are already correct.
+- Instead it uses its resources to try to deal with cases the other models are getting wrong.
+- One of the big advantages is focusing resources on modelling the tricky cases without wasting time going over the easy cases again.
+
+
+
 Similar to bagging but the trees are grown sequentially. Each tree is grown using info from prev tree. No bootstrap involved, each tree is fit on a modified version of the original data set.
 
 ## Adaboost
@@ -110,15 +122,4 @@ Multiple Additive Regression Trees, using trees with $J$ nodes estimate $f_m$.
 So for our $M$ iterations(recall $M$ is the number of boosting iterations), we fit a regression tree, computing residuals and updating $f_m$.
 
 
-## Regularization
-Fit less aggressively to avoid overfitting. It can take several forms such as shrinking and adding a penalty to a loss function to penalize highly complex models.
 
-## Bagging
-In the context of boosting, bagging refers to the following :
-Build each tree with a random subset of observations. Each tree then uses a different random subset. The fraction is then the tuning parameter.
-
-
-Resources : 
-- Boosting 
-[https://www.cs.cmu.edu/~epxing/Class/10701-08s/recitation/boosting.pdf]
-http://www.ece.rice.edu/~fk1/classes/ELEC697/Lec_17n18_Boosting.pdf
