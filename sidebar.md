@@ -21,6 +21,8 @@
 - [Recurrent Neural Net](#docs/machine_learning/neural_nets/rnn)
 - [Convolutional Neural Net](#docs/machine_learning/neural_nets/cnn)
 - [Full Bayesian & Monte Carlo](#docs/machine_learning/neural_nets/monte_carlo)
+- [Hopfield Nets](#docs/machine_learning/neural_nets/hopfield_nets)
+- [Boltzmann Machines](#docs/machine_learning/neural_nets/boltzmann)
 
 ## Evaluation Methods
 - [Multi-label Classification](#docs/machine_learning/mlc)

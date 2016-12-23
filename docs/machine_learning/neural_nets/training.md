@@ -142,6 +142,11 @@ Two ways to average models :
 - Train a system in which one neural net will specialize in each regime and a managing net will look at the input data, and decide which specialist to give it to.
 - Not efficient use of data as it is fractionated over these experts, naturally can't be expected to do well with small data sets.
 
+Q. When learning a mixture of experts, it is desirable that each expert specializes in a different area of the input space. But then at test time, how will we know which expert to use?
+
+A. We also learn a "manager" model that sees the input and assigns probabilities for picking each expert.
+We then get predictions from all the experts and take their weighted average using the probabilities.
+A Mixture of Experts can be seen as an input-dependent model averaging. The input is used to decide how much weight should be assigned to each model and then a weighted average is taken.
 
 
 

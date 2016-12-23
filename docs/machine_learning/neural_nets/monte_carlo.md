@@ -45,3 +45,10 @@
 	- Maybe we can use the sampling noise to provide the noise that an MCMC method needs!
 - This makes it possible to use full Bayesian learning for much larger networks where we have to train them with mini-batch to have any hops of ever finishing. 
 
+Q. In Bayesian learning, we learn a probability distribution over parameters of the model.
+Then at test time, how should this distribution be used to get predictions with the highest possible accuracy?
+
+A. Sample a lot of parameters using some sampling procedure such as MCMC and average the predictions obtained by using each parameter setting separately. This method makes sure that we use a lot of models and choose the models in proportion to how much we can trust them.
+
+
+
