@@ -131,5 +131,12 @@ Notice here we don't have a supervior. We are just showing the input and would l
 - This settles to the stationary distribution.
 
 
+Q. The Hopfield network shown has two visible units: V_1 and V_2.
+
+![Question](images/hopfield_q.png)
+If the network always updates both units simultaneously, what is the lowest energy ? What about sequential updates, i.e. alternate between updating $V_1$ and then updating $V_2$ ?
+
+A. If we update both of them a the same time, then both will turn on, leading to a configuration with energy 8. Next both will want to tunr off which has energy 0 so the lowest.
+If we update $V_1$ first, then the state energy is $-1$. From that state neither unit will want to change states anymore.
 
 
