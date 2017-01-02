@@ -23,6 +23,7 @@
 - [Full Bayesian & Monte Carlo](#docs/machine_learning/neural_nets/monte_carlo)
 - [Hopfield Nets](#docs/machine_learning/neural_nets/hopfield_nets)
 - [Boltzmann Machines](#docs/machine_learning/neural_nets/boltzmann)
+- [Belief Nets](#docs/machine_learning/neural_nets/belief_nets)
 
 ## Evaluation Methods
 - [Multi-label Classification](#docs/machine_learning/mlc)

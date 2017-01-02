@@ -17,7 +17,7 @@
 	- Also expensive but works better than Maximum Likelihood learning.
 
 \begin{equation}
-	p(t_{test} | input_{test}) = \underset{g \in grid}{\sum} p(W_g | D) p(t_{test} | input_{test}, W_g)\sum
+	p(t_{test} | input_{test}) = \underset{g \in grid}{\sum} p(W_g | D) p(t_{test} | input_{test}, W_g)
 \end{equation}
 
 ## Example of full Bayesian learning
