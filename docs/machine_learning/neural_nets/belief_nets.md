@@ -42,12 +42,21 @@
 - At each hidden layer, assume (wrongly) the posterior over hidden configurations factorizes into a product of distributions for each separate hidden unit.
 
 ### Factorial distributions
-- The probability of a whole vector is just the product of the probabilities of its individual terms:
+- The probability of a whole vector is just the product of the probabilities of its individual terms.
+- Say we have probabilities of three hidden units as $0.3, 0.6, 0.8$. Then the probabilitiy that the hidden units have state $1,0,1$ if the distribution is factorial : $p(1,0,1)=0.3 \times (1-0.6) \times 0.8$.
 
 ### The algorithm (Hinton et. al. 1995)
 - *Wake phase*: Use recognition weights to perform a bottom-up pass.
 	- Train the generative weights to reconstruct activities in each layer from the layer above.
 - *Sleep phase*: Use generative weights to generate samples from the model.
 	- Train the recognition weights to reconstruct activities in each layer from the layer below.
+
+## Stacking RBMs to make a DBN
+![DBN](images/DBN.png)
+- When you combine the two RBMs, what we actually get is a deep belief.
+- First learn one Boltzmann machine with its own weights
+- Once its been trained, take the hidden activity pattern (binary states) and treat it as data for the second.
+- 
+
 
 

@@ -22,18 +22,20 @@ A variable $z$ is defined as the total input to the hidden unit before the logis
 We then apply the logistic activation function to get the output of the hidden layer 1 :
 
 \begin{equation}
-  h1 = \sigma (z1) = \frac{1}{1 + e ^ {- 0.3275}} = 0.5812 
+  a_{h1} = \sigma (z1) = \frac{1}{1 + e ^ {- 0.3275}} = 0.5812 
 \end{equation}
 
 We repeat the same for $h2 = 0.5969$.
 
+Now repeat for the output layer neuron, using the output from the hidden layer neurons as inputs.
+
 \begin{align}
-  y1 = (w5 \times h1 + w6 \times h1 + b2)  \\
-  y1 = (0.4 \times 0.5812 + 0.45 \times 0.5812) + 0.6 = 1.094 \\
-  \hat{y1} = \sigma (y1) = 0.7491
+  out_{y1} = (w5 \times a_{h1} + w6 \times a_{h1} + b2)  \\
+  out_{y1} = (0.4 \times 0.5812 + 0.45 \times 0.5812) + 0.6 = 1.094 \\
+  \hat{y_1} = \sigma (out_{y1}) = 0.7491
 \end{align}
 
-Same for $out_y2 = 0.7703$.
+Same for $\hat{y_2} = 0.7703$.
 
 ## Total error
 \begin{equation}
@@ -43,11 +45,11 @@ Same for $out_y2 = 0.7703$.
 NB. The $\frac{1}{2}$ is just there to cancel the differentiation later on.
 
 \begin{equation}
-  E_y1 = \frac{1}{2}(t1 - \hat{y1})^2 = \frac{1}{2}(0.01 - 0.7491)^2 = 0.2731
+  E_{y1} = \frac{1}{2}(t1 - \hat{y_1})^2 = \frac{1}{2}(0.01 - 0.7491)^2 = 0.2731
 \end{equation}
 
 \begin{equation}
-  E_y2 = \frac{1}{2}(0.01 - 0.7703)^2 = 0.289
+  E_{y2} = \frac{1}{2}(0.01 - 0.7703)^2 = 0.289
 \end{equation}
 
 ## Backward pass
@@ -59,24 +61,24 @@ Consider $w5$. We want to know how much a change in $w5$ affects the total error
 Using the chain rule :
 
 \begin{equation} 
-\frac{\partial E_{total}}{\partial w5} = \frac{\partial E_{total}}{\partial \hat{y1}} \frac{\partial \hat{y1}}{\partial h1} \frac{\partial h1}{\partial w5} 
+\frac{\partial E_{total}}{\partial w5} = \frac{\partial E_{total}}{\partial \hat{y_1}} \frac{\partial \hat{y_1}}{\partial h_1} \frac{\partial h_1}{\partial w5} 
 \end{equation}
 
 We now calculate each piece in this equation.
 First, how much the total error change w.r.t the output :
 
 \begin{align}
-    E_{total} = \frac{1}{2}(t1 - \hat{y1})^2 + \frac{1}{2}(t2 - \hat{y2})^2 \\
-    \frac{\partial E_{total}}{\partial \hat{y1}} = 2 * \frac{1}{2} (t1 - \hat{y1})^{2-1} + 0 \\
-    = -(t1 - \hat{y1}) = -(0.01 - 0.7491 ) = 0.7391
+    E_{total} = \frac{1}{2}(t_1 - \hat{y_1})^2 + \frac{1}{2}(t_2 - \hat{y_2})^2 \\
+    \frac{\partial E_{total}}{\partial \hat{y_1}} = 2 * \frac{1}{2} (t_1 - \hat{y_1})^{2-1} + 0 \\
+    = -(t_1 - \hat{y_1}) = -(0.01 - 0.7491 ) = 0.7391
 \end{align}
 
-Next, how much output $ \hat{y1}$ changes w.r.t its total net input?
+Next, how much output $ \hat{y_1}$ changes w.r.t its total net input?
 We are going to take partial derivative of the logistic function :
 
 \begin{equation}
   \hat{y1} = \frac{1}{1 + e ^{-\hat{y1}}} \\
-  \frac{\partial \hat{y1}}{\partial h1} = \hat{y1}(1- \hat{y1}) = 0.7391(1 - 0.7391) = 0.1928
+  \frac{\partial \hat{y_1}}{\partial h1} = \hat{y_1}(1- \hat{y_1}) = 0.7391(1 - 0.7391) = 0.1928
 \end{equation}
 
 Finally, how much the total net output of $\hat{y1}$ change w.r.t. $w5$?
