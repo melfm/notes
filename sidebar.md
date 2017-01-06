@@ -1,5 +1,8 @@
 # [Mel Notes](Your project link)
 
+## Linear Algebra
+- [Matrix Basics](#docs/linear_algebra/LA_basics)
+
 ## Probability Theory
 - [Bayesian Theorem](#docs/machine_learning/bayes)
 - [Hidden Markov model](#docs/machine_learning/hmm)
@@ -24,6 +27,7 @@
 - [Hopfield Nets](#docs/machine_learning/neural_nets/hopfield_nets)
 - [Boltzmann Machines](#docs/machine_learning/neural_nets/boltzmann)
 - [Belief Nets](#docs/machine_learning/neural_nets/belief_nets)
+- [PCA and Autoencoders](#docs/machine_learning/neural_nets/autoencoder)
 
 ## Evaluation Methods
 - [Multi-label Classification](#docs/machine_learning/mlc)
@@ -39,4 +43,4 @@
 - [MART](#docs/derivations/mart)
 - [F-measure](#docs/derivations/fmeas)
 - [Optimal learning rate](#docs/derivations/optEps)
-
+- [Linear Systems](#docs/linear_systems)
