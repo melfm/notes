@@ -2,6 +2,7 @@
 
 ## Linear Algebra
 - [Matrix Basics](#docs/linear_algebra/LA_basics)
+- [Linear Systems](#docs/linear_systems)
 
 ## Probability Theory
 - [Bayesian Theorem](#docs/machine_learning/bayes)
@@ -9,6 +10,7 @@
 
 ## Machine Learning
 - [Learning Intro](#docs/machine_learning/intro)
+- [Linear Models for Regression](#docs/machine_learning/linear_regression)
 - [Logistic Regression](#docs/machine_learning/logreg)
 - [K-nearest Neighbors ](#docs/machine_learning/knn)
 - [Trees](#docs/machine_learning/trees)
@@ -43,4 +45,4 @@
 - [MART](#docs/derivations/mart)
 - [F-measure](#docs/derivations/fmeas)
 - [Optimal learning rate](#docs/derivations/optEps)
-- [Linear Systems](#docs/linear_systems)
+
