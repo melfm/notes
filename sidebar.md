@@ -5,6 +5,7 @@
 - [Linear Systems](#docs/linear_systems)
 
 ## Probability Theory
+- [Basics](#docs/machine_learning/probability)
 - [Bayesian Theorem](#docs/machine_learning/bayes)
 - [Hidden Markov model](#docs/machine_learning/hmm)
 

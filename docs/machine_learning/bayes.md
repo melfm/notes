@@ -1,8 +1,8 @@
 # The Bayesian framework
-- Assumes that we always have a prior distribution for everything.
-  - The prior may be vague.
-  - When we see some data, we combine our prior distribution with a likelihood term to get a posterior distribution.
-  - The likelihood terms takes into account how probable the observed data is given the model parameters.
+Assumes that we always have a prior distribution for everything.
+- The prior may be vague.
+- When we see some data, we combine our prior distribution with a likelihood term to get a posterior distribution.
+- The likelihood terms takes into account how probable the observed data is given the model parameters.
     - Favors parameter settings that make the data likely.
     - Fights the prior.
     - With enough data the likelihood term always wins.
@@ -23,13 +23,24 @@ probability $p(w|D)$.
 - The denominator is the normalization constant which ensures that the posterior distribution on the left-hand side is a valid probability density and integrates to one.
 - We can state Bayes' theorem :
 \begin{equation}
-  posterior \alpha likelihood \alpha prior
+  posterior \quad \alpha \quad likelihood \quad \alpha \quad prior
 \end{equation}
 - Integrating both sides w.r.t. $w$ we can express the denominator in Bayes' theorem in terms of the prior distribution and the likelihood function
 \begin{equation}
   p(D) = \int_ p(D|w)p(w) dw.
 \end{equation}
 
+## From conditional probability point of view
+
+\begin{align}
+	p(x|y) = \frac{p(x,y)}{p(y)}, p(y|x)=\frac{p(x,y)}{p(x)} \\
+	p(x|y)p(y) = p(x,y)=p(y|x)p(x)
+\end{align}
+
+Bayes Theorem defines how to update one's belief about X given y,
+\begin{equation}
+	p(x|y)= \frac{p(y|x)p(x)}{p(y)} = \frac{likelihood.prior}{evidence}
+\end{equation}
 
 ## Error function
 The negative log of the likelihood function. Because the negative logarithm is a monotonically decreasing function, maximizing the likelihood is equivalent to minimizing the error.
@@ -65,7 +76,7 @@ So we multiply our prior by the likelihood term and then we get a nice curve whi
 
 ![Prior distribution after observing a tail](../images/distribution_tail.png)
 
-If we do this another 98 times, we get the same surve with a highly sharp peak.
+If we do this another 98 times, we get the same curve with a highly sharp peak.
 
 ## Bootstrap
 - An approach to determining frequentist error bars using multiple data sets.

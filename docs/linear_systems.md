@@ -9,3 +9,16 @@ Def: State : Vector of system variables that entirely defines the system at a sp
 - Linear first order time-invariant dynamics in discrete time
 	- Update equation : $x_t = Ax_{t-1} + Bu_t$
 	- Measurement equation : $y_t = Cx_t + Du_t$
+
+## Linear Time Invariant Systems
+- Transfer Function
+	- Modesl output behaviours $z(t)$ for input $u(t)$
+- State Space Modelling
+	- Model detail variables (change over time) for the system
+
+## Discrete Systems
+- Working with discrete system model sampled at regular intervals T time step
+	- $A_d \approx I + A_cT$
+	- $B_d \approx TB_c$
+	- $C_d = C_c$
+	- $D_d = D_c$
