@@ -56,6 +56,15 @@ Probability of x given y -> $p(X=x|Y=y)=p(x|y)$
 - Relation to joint probability
 	- $p(x|y)=\frac{p(x,y)}{p(y)}$
 - If X and Y are independent -> $p(x|y)=p(x)$
+- e.g. "critical hit" roll  20 then 19 or 20
+
+\begin{equation}
+	\rho(critical | first=20) = \frac{\rho(second=19 \quad or \quad 20)\rho(first=20)}{\rho(first=20)} = \frac{2}{20} 
+\end{equation}
+
+\begin{equation}
+	\rho(critical | first!=20) = 0 \quad not \quad independent!
+\end{equation}
 
 ### Law of Total Probability
 Discrete

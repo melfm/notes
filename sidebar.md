@@ -39,6 +39,10 @@
 - [Gradient Descent](#docs/optimization/gradientdesc)
 - [Unconstrained Optimization](#docs/optimization/unconstrained)
 
+## Estimation & Mapping
+- [Particle Filters](#docs/estimation/particleFilters)
+- [EKF SLAM](#docs/mapping/ekf_slam)
+
 ## Libraries 
 - [TensorFlow RNN](#docs/libraries/tensorflowrnn)
 
