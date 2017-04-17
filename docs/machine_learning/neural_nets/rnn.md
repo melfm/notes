@@ -97,7 +97,7 @@ Several ways:
 - Echo State Networks: Initialize the input to hidden, hidden to hidden and output to hidden connections very carefully so that the hidden state has a huge reservoir of weakly coupled oscillators which can be selectively driven by the input.
 - Good initialization with momentum
   
-# Eco State Networks
+## Eco State Networks
 - Trick to initialize the connections in the recurrent neural network in such a way that it has a big reservoir 
 of coupled oscillators.
 - So provided the input, it converts that input into the states of oscillators.

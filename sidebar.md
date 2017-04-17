@@ -25,6 +25,7 @@
 - [Learning Processes](#docs/machine_learning/learning_process)
 - [Backpropagation Example](#docs/machine_learning/neural_nets/backprop)
 - [Recurrent Neural Net](#docs/machine_learning/neural_nets/rnn)
+- [LSTM](#docs/machine_learning/neural_nets/lstm)
 - [Convolutional Neural Net](#docs/machine_learning/neural_nets/cnn)
 - [Full Bayesian & Monte Carlo](#docs/machine_learning/neural_nets/monte_carlo)
 - [Hopfield Nets](#docs/machine_learning/neural_nets/hopfield_nets)
