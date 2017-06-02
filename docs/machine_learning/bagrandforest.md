@@ -39,7 +39,7 @@ Each bootstrap sample (one bag) on average uses 2/3 of their observations leavin
 The OOB observation can be used to estimate the test error. So we don't need a train/test split.
 
 # Boosting
-- Train a sequence of low capacity models. 
+- Train a sequence of low capacity models.
 - Weight the training cases differently for each model in the sequence.
 - We up weight the cases the previous model got wrong and we down weight the cases the model got right.
 - So that the next model in the sequence doesn't waste its time trying to model cases that are already correct.
@@ -101,10 +101,10 @@ Typical loss functions for Regression :
 
 Typical loss functions for classification :
 
-- Margin error $yf(x)$ represents goodness of classification, penalize large negative margin and encourage positive margin.
+- Margin error $y-f(x)$ represents goodness of classification, penalize large negative margin and encourage positive margin.
 - Misclassification  $I(sign(f) \neq y)$
 - Exponential  $exp(-yf)$
-- Binom deviance $log(1+exp(-2yf))
+- Binom deviance $log(1+exp(-2yf))$
 - Support vector  $max(0,1 - yf)$  or soft-margin loss: $(1 − yf)I(yf > 1)$ (SVM)
 
 The choice of loss function is related to computation complexity and robustness of the algorithm.

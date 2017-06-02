@@ -20,7 +20,7 @@
 
 ## Neural Networks
 - [Single-Layer Perceptron](#docs/machine_learning/neural_nets/SLP)
-- [Neural Networks](#docs/machine_learning/neural_nets/mlp)
+- [Multi-Layer Perceptron](#docs/machine_learning/neural_nets/mlp)
 - [Training techniques](#docs/machine_learning/neural_nets/training)
 - [Learning Processes](#docs/machine_learning/learning_process)
 - [Backpropagation Example](#docs/machine_learning/neural_nets/backprop)
@@ -33,6 +33,9 @@
 - [Belief Nets](#docs/machine_learning/neural_nets/belief_nets)
 - [PCA and Autoencoders](#docs/machine_learning/neural_nets/autoencoder)
 
+## Deep Learning
+- [Deep Networks](#docs/machine_learning/deep_learning_book/intro)
+
 ## Evaluation Methods
 - [Multi-label Classification](#docs/machine_learning/mlc)
 
@@ -43,9 +46,6 @@
 ## Estimation & Mapping
 - [Particle Filters](#docs/estimation/particleFilters)
 - [EKF SLAM](#docs/mapping/ekf_slam)
-
-## Libraries 
-- [TensorFlow RNN](#docs/libraries/tensorflowrnn)
 
 ## Derivations
 - [MART](#docs/derivations/mart)

@@ -1,7 +1,14 @@
-# Weight space
+# MLP
+A multilayer perceptron is a mathematical function mapping some set of input values to output values.
+
+
+## Weight space
 This space has one dimension per weight. A point in the space represents a particular setting of all the weights. Each training case can be represented as a hyperplane through the origin. The weights must lie on one side of this hyper-plane to get the answer correct.
 
-# Linear neurons (linear filters)
+## Linear neurons (linear filters)
+
+- Models based on the $f(x, w)$ used by the perceptron and ADALINE(adaptive linear element) are linear models
+
 The neuron has a real-valued output which is a weighted sum of its inputs.
 
 \begin{equation}
@@ -39,7 +46,7 @@ So out learning rule becomes the following :
 We change the weights by the amount of epsilon times the derivative of the error w.r.t the weight and with a minus sign because we want the error to go down. This minus then cancels out with the minus in the above term and that gives the final expression : sum of all training cases, learning rate times input value times the difference between target and actual output.
 
 
-# Logistic neurons
+## Logistic neurons
 These give a real-valued output that is a smooth and bounded function of their total input.
 \begin{equation}
 z = b + \sum_i x_i w_i
@@ -80,12 +87,12 @@ We now have the learning rule :
 
 The way the error changes the weights, is by summing over training cases times the residual (difference between output and target) but note the middle term, this is the slope of logistic. So here we're just modifying the delta rule.
 
-# Backpropagation
+## Backpropagation
 The idea is to get error derivatives w.r.t. hidden neuron activities. Each hidden activity can affect many output units and can therefore have many separate effects on the error. These effects must be combined. Once we have the error derivatives for the hidden activities, its easy to get the error derivatives for the weights going into a hidden unit.
 First we define our error, we differentiate that and this tells us how the error changes as we change the activity of the output unit. So once we have the error derivative w.r.t. output of the hidden unit, we then want to use all the derivatives in the output layer to compute the same quantity in the hidden layer that comes before.
 The core of backpropagation is taking error derivatives in one layer, and from them computing the error derivatives that come before that.
 
-# Softmax Regressions
+## Softmax Regressions
 This is a generalization of the logistic function, it squashes a k-dimensional vector of arbitrary real values to a k-dimensional vector of real values with ranges (0,1).
 Consider the MNIST classification. A softmax regression has two steps: first we add up the evidence of our input being in certain classes, and then we convert that evidence into probabilities.
 
@@ -136,7 +143,7 @@ y_i = \frac{e^{z_i}}{\sum_{j \in group} e ^ {z_j}}
 So when add possibilities it will sum to 1. So we force the y's to represent a probability distribution.
 So now what is the right cost function with softmax??
 
-# Cross-entropy
+## Cross-entropy
 When we train a neural network, we need to define what it means for the model to be good. Actually we usually define the other way round, what it means for a model to be bad, called cost or loss. We then try to minimize how bad it is.
 Cross-entropy arises from thinking about information compressing codes in information theory.
 
