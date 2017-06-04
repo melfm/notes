@@ -86,6 +86,8 @@ Several ways:
 - But during the back propagation, its a linear system and so it suffers from a problem of linear systems, which is when we iterate they tend to either explore or die :(
 - This means when we backpropagate through time gradients that are many steps earlier than the targets arrive will be tiny. Similarly if the weights are big, the gradients will explore. Meaning when we back propagate through time, the gradients will get huge and wipe out all your knowledge.
 
+In matrix terms, the gradient signal can end up being multiplied a large number of times by the weight matrix associated with the connections between the neurons of the recurrent hidden layer. If this weights in this matrix are small or eigenvalue of the weight matrix is smaller than 1.0, it can lead to vanishing gradients.
+
 ### How to avoid
 - Can avoid by initializing the weights very carefully.
 - Altho still hard to detect that the current target output depends on an input from many time-steps ago.

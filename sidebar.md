@@ -35,6 +35,7 @@
 
 ## Deep Learning
 - [Deep Networks](#docs/machine_learning/deep_learning_book/intro)
+- [Region CNN](#docs/machine_learning/deep_learning_book/RCNN)
 
 ## Evaluation Methods
 - [Multi-label Classification](#docs/machine_learning/mlc)
