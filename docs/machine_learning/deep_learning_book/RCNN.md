@@ -202,3 +202,34 @@ number of sections we divide the proposal into
 - Benefit? Processing speed. If there are multiple object proposals, we can use the
 same feature map for all of them.
 
+## RPN Loss Function
+- Assign a binary class label (of being an object or not) to each anchor
+- Assign a positive label to two kinds of anchors
+    - Anchor with the highest IoU
+    - Anchro with IoU higher than 0.7
+    - A single ground-truth box may assign positive labels to multiple anchors
+- Assign a negative label to a non-positive anchor if IoU is lower than 0.3
+- Loss function for an image is :
+
+\begin{equation}
+    L({p_i}, {t_i}) = \frac{1}{N_{cls}} \sum_i L_{cls}(p_i, p^{*}_i) + \\
+    \lambda \frac{1}{N_{reg}} \sum_i{p^{\star}} L_{reg}(t_i, t_i^{\star})
+\end{equation}
+
+- $L_{reg}(t_i, t^{\star}_i) = R(t_i, t^{\star}_i)$
+    - $R$ is smooth $L_1$
+
+## Training
+- Both RPN and Fast-RCNN are trained independently
+- Thus they will modify their conv layers in different ways
+- Need a technique that allows for sharing conv layers between
+the two networks, rather than separate learnings
+
+### Alternating Training
+
+
+### Approximate Joint Training
+
+
+### Non-approximate Joint Training
+
