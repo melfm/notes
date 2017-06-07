@@ -36,6 +36,8 @@
 ## Deep Learning
 - [Deep Networks](#docs/machine_learning/deep_learning_book/intro)
 - [Region CNN](#docs/machine_learning/deep_learning_book/RCNN)
+- [Recurrent Rolling](#docs/machine_learning/deep_learning_book/recurrent_rolling)
+- [Multi-view](#docs/machine_learning/deep_learning_book/multi-view)
 
 ## Evaluation Methods
 - [Multi-label Classification](#docs/machine_learning/mlc)

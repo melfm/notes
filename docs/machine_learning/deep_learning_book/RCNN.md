@@ -226,10 +226,32 @@ same feature map for all of them.
 the two networks, rather than separate learnings
 
 ### Alternating Training
-
+- First train RPN
+- Then use proposals to train Fast R-CNN
+- Network tuned by Fast R-CNN is used to initialize RPN
 
 ### Approximate Joint Training
+- RPN and Fast R-CNN are merged into one network during training (like in Figure 2)
+- In each SGD iteration, the forward pass generates region proposals
+which are treated just like fixed, pre-computed proposals when training Fast R-CNN
+- For backpropagation, signals from both RPN loss and Fast R-CNN loss are combined
+- Easy to implement but ignores the derivative w.r.t. the proposal boxes coordinates
+    - So its an approximation
+- Reduces training time by 25-50%
 
 
 ### Non-approximate Joint Training
+- Theoretically valid backpropagation solver should involve gradients w.r.t.
+the box coordinates
+- These gradients are ignored in the above approaches
+- Solution can be given by an ''RoI warping''
+
+## 4-Step Alternating Training
+- Step 1: Train RPN, initialize with ImageNet
+- Step 2: Train a separate detection network by Fast R-CNN using proposals generated
+in Step 1. This is also initialized with ImageNet
+- Step 3: Use the detector network to initialize RPN BUT fix the shared conv
+layers and only fine-tune the layers unique to RPN -> Now they share conv layers
+- Step 4: Keep the shared conv layers fixed, fine-tune the unique layers of
+Fast R-CNN
 
