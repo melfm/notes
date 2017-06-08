@@ -6,7 +6,7 @@ $3 \times 3$ area of the last conv layer to detect small and large objects
 - Since multiple pooling layers are used the resulting resolution of the
 last feature map is much smaller than the input image
     - Problematic for detecting small objects
-- Insightful alternative proposed in SSD :
+- Alternative proposed in SSD :
     - Exploit the fact that in most of the CNN models for detection
     the internal feature maps in different layers are already of different
     scales due to pooling.
@@ -14,5 +14,18 @@ last feature map is much smaller than the input image
     res for large
 
 ### Single Shot Detector (SSD)
-- Needs an input image and ground truth boxes for each object
 - Feed-forward conv net, produces fixed-size collection of BB and scores
+- Mutli-scale feature maps for detection
+    - Add conv feature layers to the end of the truncated base network
+    - These layers decrease in size progressively and allow detection at multiple
+scales
+- Key difference between training SSD and training a typical detector that uses
+region proposals is that GT info needs to be assigned to specific outputs in
+the fixed set of detector output
+
+## RRC Overview
+- Recurrent process in which iteration gathers and aggregares relevant features
+for detection
+
+
+
