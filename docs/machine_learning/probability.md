@@ -66,12 +66,18 @@ $f$ takes on when $x$ is drawn from $P$
 	- then Y tends to be below its expected value
 - If X,Y are independent, $Conv(X,Y)=0$
 
+
 ### Covariance Matrix, $\Sigma$
 - Defines variational relationship between each pair of random variables
 	- $\Sigma_{i,j} = Conv(X_i, X_j)$
 - Generalization of variance, diagonal elements represent variance of each random variable
 	- $Conv(X_i,X_i)=Var(X_i)$
 - Covariance matrix is symmetric, positive semi-definite
+
+### Correlation
+- Normalize the contribution of each variable in order to measure
+only how much the variables are related, rather than being affected
+by the scale of the separate variables
 
 ### Joint probability
 - Probability mass function can act on many variables at the same time
@@ -92,6 +98,13 @@ in this way for every value of $z$:
 \begin{equation}
     \forall x \in x,y \in y, z\in z, p(x=x,y=y|z=z) = p(x=x|z=z)p(y=y|z=z)
 \end{equation}
+
+Note: The notions of covaraince and independence are related but distinct.
+Related because two variables that are independent have zero covariance,
+and two variables that have non-zero covariance are dependent.
+
+2nd Note: It is possible for two variables to be dependent but have
+zero covariance.
 
 ### Conditional Probability
 - Probability of some event, given that some other event has happened
@@ -146,6 +159,51 @@ variable:
     P(x^{(1)}, ..., x^{(n)}) =  P(x^{(1)})\Pi^n_{i=2} P(x^{(i)} | x^{(1)}, ..., x^{(i)})
 \end{equation}
 - This is known as chain rule or product rule of probability
+
+## Probability Distributions
+### Bernoulli Distribution
+- Distribution over a single binary random variable
+- Controlled by a single parameter $\Phi \in [0,1]$ -> gives probability
+of random variable being equal to 1
+
+### Multinoulli Distribution
+- Or categorical distribution is a distribution over a single dicrete
+variable with $k$ different states where $k$ is finite.
+- Special case of multinomial distribution
+- parameterized over $p \in [0,1]^{k-1}$ where $p_i$ gives the probability
+of the i-th state
+- Used to refer to distributions over categories of objects
+    - So no need to compute the expectation or variance of
+    multinoulli-distributed random vars
+
+### Gaussian Distribution
+- Most common distribution over real numbers is the normal distribution
+- Two parameters $\mu \in R$ and $\sigma \in (0, \infty)$ control it
+    - $\mu$ gives the coordinate of the central peak (mean)
+    - $\sigma$ is standard deviation
+
+Q: Why are normal distributions a sensible choice in many cases?
+First, many distributions we want to model are truly close to being
+normal distributions. The central limit theorem shows that the sum of
+many independent random variables is approximately normally distributed.
+Secondly, out of all possible probability distributions with the same
+covariance, the normal distribution encodes the maximum amount of uncertainty over the real numbers. We can think of it as being the one that inserts
+the least amount of prior knowledge into a model
+
+### Multivariate Normal Distribution
+- The normal distribution generalizes to $R^n$
+- The parameter $\mu$ still gives the mean though now it is vector-valued
+
+### Exponential and Laplace Distributions
+- In the context of deep learning, we often want a probability distribution
+with a sharp point at $x=0$. To get this we use the exponential distribution
+
+\begin{equation}
+    p(x;\lambda) = \lambda 1_{x \geq 0}exp(-\lambda x)
+\end{equation}
+- Indicator function $1_{x \geq 0}$ to assign probability zero to all
+negative values of x
+
 
 
 
