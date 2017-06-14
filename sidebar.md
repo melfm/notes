@@ -43,6 +43,7 @@
 - [Multi-label Classification](#docs/machine_learning/mlc)
 
 ## Optimization
+- [Numerical Computation](#docs/optimization/numerical_computation)
 - [Gradient Descent](#docs/optimization/gradientdesc)
 - [Unconstrained Optimization](#docs/optimization/unconstrained)
 
