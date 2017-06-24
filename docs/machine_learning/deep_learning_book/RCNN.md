@@ -255,3 +255,21 @@ layers and only fine-tune the layers unique to RPN -> Now they share conv layers
 - Step 4: Keep the shared conv layers fixed, fine-tune the unique layers of
 Fast R-CNN
 
+## Summary
+- R-CNN method took the approach of cropping externally computed box proposals
+out of an input image and running a neural net classifier on these crops
+    - This can be expensive because many crops are necessary
+    - This in turn leads to significant duplicated computation from overlapping
+    crops
+- Fast R-CNN alleviated this problem by pushing the entire image once through a feature extractor then cropping from an intermediate layer so that the crops share
+the computation load of feature extraction
+- Typical to have a collection of boxes overlaid on the image at different spatialocations, scales and aspect ratio that act as ''anchors''.
+- A model is trained to make two predictions for each anchor
+    - 1) a discrete class prediction for each anchor
+    - 2) a continuous prediction of an offset by which the anchor needs
+    to be shifted to fit the GT bounding box.
+## R-FCN
+- Region-based Fully Convolutional Network
+- This is like Faster R-CNN but instead of cropping features from the same layer where region proposals are predicted, crops are taken from the last layer of features prior to prediction
+- This pushing of cropping to the last layer minimizes the amount of per-region computation that must be done
+- They then argue that object detection task needs localization representation that respect translation variance and thus propose a position-sensitive cropping mechanism that is used instead of the more standard ROI pooling operation.
