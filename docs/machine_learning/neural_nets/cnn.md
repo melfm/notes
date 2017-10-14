@@ -1,32 +1,24 @@
-# Convolutional Neural Networks (CNNs / ConvNets)
-- Make explicit assumption that the inputs are images
-- This allows to encode certain properties into the architecture
-- Vanilla neural nets don't scale well to full images. Say image of size 32x32x3, the net would have 32*32*3 = 3072 weights.
+# Convolutional Neural Networks
+- The name 'convolutional neural network' indicates that the network employs a mathematical operation called convolution.
+- Convolution is a specialized kind of linear operation
+- CNNs use convolution in place of general matrix multiplication.
+- Make explicit assumption that the inputs with grid-like topology
 - 3D volumes of neurons => Layers of a CNN have neurons arranged in 3 dimensions: width, height, depth
-- Sequence of layers, every layer transforms one volume of activations to another through a differentiable function.
 
+## Convolutional Op
+- Convolution is an operation on two functions of a real valued argument
+- In convolutional network terminology, the first argument is *input*, second is *kernel*. The output is referred to as the *feature_map*.
+- The input is usually a multidimensional array, the kernel is usually a multidimensional array of parameters that are adapted by the learning algorithm.
+- Every filter is small spatially but extends through the full depth of the input volume. 
+- As we slide the filter across the input, we will get a 2-dimensional activation map that gives the responses of that filter at every spatial position. 
+- So this way the network learns filters that activate by some type of visual feature such as an edge of some orientation or a blotch of some color. 
 
-## Layers used
-Convolutional Layer, Pooling Layer, and Fully-Connected Layer
-e.g. :
-- INPUT [32x32x3] will hold the raw pixel values of the image
-- CONV layer : computes the output of neurons that are connected to local regions in the input, each computing a dot product between their weights and a small region they are connected to in the input volume. So say we use 12 filters, this results in -> [32x32x12]
-- RELU : applies an elementwise activation function such as $max(0,x)$ thresholding at zero. This leaves the volume unchanged.
-- POOL : performs a downsampling operation along the spatial dimension (width, height) -> [16x16x12]
-- FC : computes the class scores, resulting in a volume size [1x1x10], if we have 10 categories. Each neuron in this layer will be connected to all the numbers in the previous volume.
-
-
-Note : Some layers contain parameters and others don't. In particular, CONV/FC layers perform transformations that are a function of both input volume and also parameters (the weights and the biases of the neurons). RELU/POOL however implement a fixed function.
-The parameters in the CONV/FC layers are trained with gradient descent.
-
-
-## Convolutional Layer
-This is the core building block. The layer's parameters consist of a set of learnable filters. Every filter is small spatially but extends through the full depth of the input volume. During forward pass, we slide each filter across the width and height of the input volume and compute dot products between the entries of the filter and the input at any position. As we do this we will produce a 2-dimensional activation map that gives the responses of that filter at every spatial position. So this way the network learns filters that activate when they see some type of visual feature such as an edge of some orientation or a blotch of some color. So in this case we will have an entire set of filters in each CONV layer (12 filters) and each will produce a separate 2-dimensional activation map. We then stack these activation maps along the depth dimension and produce the output volume.
-
-In terms of connectivity, the connections are local in space (that is along width and height) but always full along the entire depth.
-
-Let's take an example : Say we have input volume [32x32x3]. If the receptive field (i.e. filter size) is 5x5, then each neuron in the Conv Layer will have weights to a [5x5x3] region in the input volume, so total 5*5*3 = 75 weights plus bias.
-Now say the input volume has [16x16x20]. Using filter 3x3, we now have 3*3*20 = 180 connections to the input volume.
+### Motivation
+Convolution leverages three ideas:
+- Sparse interactions
+- Parameter sharing
+- Equivariant representation
+Moreover, convolution provides a means of working with input of variable size.
 
 ### Spatial Arrangement
 Three hyperparameters control the size of the output volume: the depth, stride and zero-padding.
@@ -38,10 +30,23 @@ So in order to compute the spatial size of the output volume, say W = input volu
 So if input is 7x7 and 3x3 filter with stride 1 and pad 0 then we get output 5x5. If stride is 2, then 3x3.
 
 ### Parameter Sharing
-Controls the number of parameters. We can dramatically reduce the number of parameters by making one reasonable assumption: If one feature is useful to compute at some spatial position (x,y), then it should be useful to compute at a different position (x2, y2). 
+- Refers to using the same parameters for more than one function in a model
+- In traditional neural net, each element of the weight matrix is used exactly once when computing the output of a layer
+- A synonym for parameter sharing is to say a network has *tied weights*, because the value of the weight applied to one input is tied
+to the value of a weight applied elsewhere.
+- In a convolutional neural net, each member of the kernel is used at every position of the input (except maybe the boundaries)
+- The parameter sharing used by the convolutional op means that rather than learning a separate set of parameters for every location, we learn only one set.
+
+### Equivariance
+- The particular form of parameter sharing discussed above, causes the layer to have a property called *equivariance*.
+- To say a function is equivariant means that if the input changes, the output changes in the same way.
+- A functio $f(x)$ is equivariant to a function $g$ if $f(g(x)) = g(f(x))$.
+- Say for an image, convolution creates a 2D map of where certain features appear in the input. If we move the object in the input, its representation will move the same amount in the output.
+- Now this is useful when processing images to detect edges in the first layer of a convolution, knowing that the same edges appear more or less everywhere in the image, so it makes sense to share parameters across the entire image.
+
+Note: Convolution is not naturally equivariant to some other transformations such as change in scale or rotation. Other mechanisms are necessary for handling these kinds of transformations.
 
 ### Weight tying
-
 Let's look at what weight tying does to gradients, computed using the backpropagation algorithm. Say we have three input units, $x_1$, $x_2$, $x_3$, two $logistic$ hidden units, $h_1$, $h_2$, four input to hidden weights $w_1$, $w_2$, 
 $w_3$, $w_4$ and two hidden to output weights $u_1$, $u_2$. The output neuron $y$ is a linear neuron and we are using the squared error cost function.
 Here's a diagram of this network : 
@@ -81,9 +86,15 @@ So  $\frac{\partial E}{\partial w_2}  = -(t-y)u_1h_1(1-h_1)x_2 $ and we compute 
 
 So we looked at the equation to find the sequence of derivatives we would need for backpropagation. We can also look at the picture.
 
-
 ### Pooling
-Process of combining the outputs of several hidden units to create a single hidden unit. This introduces some invariance to local transformations in the input image.
+- A pooling function replaces the output of the net at a certain location with a summary statistics of the nearby outputs.
+- e.g. *max pooling*, $L^2$ norm of a rectangular neighbourhood, or weighted average
+- Pooling helps to make the representation approximately *invariant* to small translations of the input
+- Invariance tolocal translation can be useful if we care about whether some feature is present rather than exactly where it is.
+- In other contexts, it is more important to preserve the location of a feature, say you want to find a corner defined by two edges meeting at a specific orientation, then we want to preserve the location of edges
+- Pooling can be viewed as adding an infinitely strong prior that the function the layer learns must be invariant to small translations.
+
+
 
 ### Dimension Hopping
 Dimension hopping occurs when one can take the information contained in the dimensions of some input and move this between dimensions while not changing the target. The canonical example is taking a mnist image and translating it within the image. The dimensions that contain "ink" are now different as they have now been moved to other dimensions. However the label we assign to that digit has not changed. So when the viewpoint changes, this causes "dimension hopping".
