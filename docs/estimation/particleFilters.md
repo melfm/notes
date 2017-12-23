@@ -62,5 +62,3 @@ So now unlike KF, we have no restrictions on the representations that we want to
 - For $j=1$ to $D$
     - Draw index $i$ with probability $\propto w^{[i]}_t$  i.e. resampling
         - Add the final particle set    $S_t = S_t + \{s^{[i]}_t\}$
-
-![Sampling](../images/particle-filter-code.png)
