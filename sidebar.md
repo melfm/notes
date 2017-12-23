@@ -37,7 +37,6 @@
 - [Deep Networks](#docs/machine_learning/deep_learning/intro)
 - [Region CNN](#docs/machine_learning/deep_learning/RCNN)
 - [Recurrent Rolling](#docs/machine_learning/deep_learning/recurrent_rolling)
-- [Multi-view](#docs/machine_learning/deep_learning/multi-view)
 - [Roi-Pooling Techniques](#docs/machine_learning/deep_learning/roi_pooling)
 
 ## Evaluation Methods
