@@ -3,9 +3,72 @@
 Probability theory provides means of quantifying uncertainty
 and axioms for deriving new uncertain statements
 
+## Probability of an event
+Let's define it as the fraction of times that event occurs out of the total number of trials
+* Probabilities must lie in the interval $[0, 1]$
+* If the events are mutually exclusive and if they include all possible outcomes, then the
+probabilities of those events must sum to one
+
+## Fundamental Rules of Probability
+\begin{equation}
+sum \ rule \quad p(X) = \sum_Y p(X, Y)
+\end{equation}
+
+\begin{equation}
+product \ rule \quad p(X,Y) = p(Y|X)p(X)
+\end{equation}
+
+Note: $p(X = x_i)$ is sometimes called the $\textbf{marginal}$ probability, because
+it is obtained by marginalizing or summing out the other variables (say $Y$ in this case)
+
 ## Random variable
 A random variable is a variable that can taken on different
 values randomly. Random variable may be discrete or continuous.
+* The probability that $X$ takes the value $r$ is denoted $P(X=r)$
+* May simply write $P(X)$ to denote a distribution over the random
+variable $X$ or $p(r)$ to denote the distribution evaluated for the particular value $r$
+
+
+## Joint probability
+- Measures the likelihood of two events occurring together at the same point in time
+- $p(X,Y)$ is a joint probability -> The probability of $X$ and $Y$
+- $P(X = x, Y= y)$ denotes the probability that $X =x $ and $ Y=y$
+- $p(X=x \ and \ Y=y) = p(x,y)$
+- e.g. P of clouds and rain today
+
+
+## Conditional Probability
+- $P(Y|X)$ is a conditional probability -> The probability of $Y$ given $X$
+- Probability of some event, given that some other event has happened
+- From the product rule and symmetry property $p(X,Y)=p(Y,X)$ we get the following
+relationship between conditional probabilities
+\begin{equation}
+P(Y| X) = \frac{P(X|Y)p(Y)}{P(X)}
+\end{equation}
+- This is called the $\textbf{Bayes' theorem}$
+- Using the rum rule, the denominator in Bayes' theorem can be expressed in terms of the
+quantities appearing in the numerator
+\begin{equation}
+P(X) = \sum_Y p(X|Y)p(Y)
+\end{equation}
+- Relation to joint probability
+	- $p(x|y)=\frac{p(x,y)}{p(y)}$
+- If X and Y are independent -> $p(x|y)=p(x)$
+- e.g. "critical hit" roll  20 then 19 or 20
+
+\begin{equation}
+	\rho(critical | first=20) = \frac{\rho(second=19 \quad or \quad 20)\rho(first=20)}{\rho(first=20)} = \frac{2}{20}
+\end{equation}
+
+\begin{equation}
+	\rho(critical | first!=20) = 0 \quad not \quad independent!
+\end{equation}
+Note: It is important not to confuse conditional probability with
+computing what would happen if some actions were undertaken. The conditional
+probability that a person is from Germany given that they speak German is quite
+high, but if a randomly selected person is taught to speak German, their
+country of origin does not change
+
 ### Discrete random variable
 - Has a finite or countably finite number of states
 - These states are not necessarily integers; they can also
@@ -79,11 +142,7 @@ $f$ takes on when $x$ is drawn from $P$
 only how much the variables are related, rather than being affected
 by the scale of the separate variables
 
-### Joint probability
-- Probability mass function can act on many variables at the same time
-- $P(X = x, Y= y)$ denotes the probability that $X =x $ and $ Y=y$
-- $p(X=x \quad and \quad Y=y) = p(x,y)$
-- e.g. P of clouds and rain today
+
 
 ### Independence
 - Two random variables $x$ and $y$ are independent if their probability
@@ -105,29 +164,6 @@ and two variables that have non-zero covariance are dependent.
 
 2nd Note: It is possible for two variables to be dependent but have
 zero covariance.
-
-### Conditional Probability
-- Probability of some event, given that some other event has happened
-Probability of x given y -> $p(X=x|Y=y)=p(x|y)$
-- Formula:
-    - $P(Y=y| X=x) = \frac{P(Y=y,X=x)}{P(X=x)}$
-- Relation to joint probability
-	- $p(x|y)=\frac{p(x,y)}{p(y)}$
-- If X and Y are independent -> $p(x|y)=p(x)$
-- e.g. "critical hit" roll  20 then 19 or 20
-
-\begin{equation}
-	\rho(critical | first=20) = \frac{\rho(second=19 \quad or \quad 20)\rho(first=20)}{\rho(first=20)} = \frac{2}{20}
-\end{equation}
-
-\begin{equation}
-	\rho(critical | first!=20) = 0 \quad not \quad independent!
-\end{equation}
-Note: It is important not to confuse conditional probability with
-computing what would happen if some actions were undertaken. The conditional
-probability that a person is from Germany given that they speak German is quite
-high, but if a randomly selected person is taught to speak German, their
-country of origin does not change
 
 ### Law of Total Probability
 Discrete
