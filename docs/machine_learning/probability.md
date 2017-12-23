@@ -8,7 +8,7 @@ A random variable is a variable that can taken on different
 values randomly. Random variable may be discrete or continuous.
 ### Discrete random variable
 - Has a finite or countably finite number of states
-- Note: these states are not necessarily integers; they can also
+- These states are not necessarily integers; they can also
 just be named states that are not considered to have any
 numerical values
 - X denotes a random variable
