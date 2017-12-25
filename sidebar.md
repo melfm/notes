@@ -2,7 +2,6 @@
 
 ## Linear Algebra
 - [Matrix Basics](#docs/linear_algebra/LA_basics)
-- [Linear Systems](#docs/linear_systems)
 
 ## Probability Theory
 - [Basics](#docs/machine_learning/probability)
@@ -35,19 +34,17 @@
 
 ## Deep Learning
 - [Deep Networks](#docs/machine_learning/deep_learning/intro)
-- [Region CNN](#docs/machine_learning/deep_learning/RCNN)
-- [Recurrent Rolling](#docs/machine_learning/deep_learning/recurrent_rolling)
-- [Roi-Pooling Techniques](#docs/machine_learning/deep_learning/roi_pooling)
 
-## Evaluation Methods
-- [Multi-label Classification](#docs/machine_learning/mlc)
+## Object Detection
+- [Region CNN](#docs/machine_learning/deep_learning/RCNN)
+- [Roi-Pooling Techniques](#docs/machine_learning/deep_learning/roi_pooling)
 
 ## Optimization
 - [Numerical Computation](#docs/optimization/numerical_computation)
 - [Gradient Descent](#docs/optimization/gradientdesc)
-- [Unconstrained Optimization](#docs/optimization/unconstrained)
 
 ## Estimation & Mapping
+- [Linear Systems](#docs/linear_systems)
 - [Particle Filters](#docs/estimation/particleFilters)
 - [EKF SLAM](#docs/mapping/ekf_slam)
 
