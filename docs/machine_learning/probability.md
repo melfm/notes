@@ -69,6 +69,28 @@ probability that a person is from Germany given that they speak German is quite
 high, but if a randomly selected person is taught to speak German, their
 country of origin does not change
 
+### Independence
+- If the joint distribution of two variables factorizes into the product of marginals so that $p(X, Y) = p(X)p(Y)$ then $X$ and $Y$ are said to be independent.
+- i.e. two random variables $x$ and $y$ are independent if their probability
+distribution can be expressed as a product of two factors
+- If X,Y are independent, then
+    - $p(x,y)=p(x)p(y)$
+    - e.g. probability of coin flip
+- Two random variables are conditionally independent given a random variable
+$z$ if the conditional probability distribution over $x$ and $y$ factorizes
+in this way for every value of $z$:
+
+\begin{equation}
+    \forall x \in x,y \in y, z\in z, p(x=x,y=y|z=z) = p(x=x|z=z)p(y=y|z=z)
+\end{equation}
+
+Note: The notions of covaraince and independence are related but distinct.
+Related because two variables that are independent have zero covariance,
+and two variables that have non-zero covariance are dependent.
+
+2nd Note: It is possible for two variables to be dependent but have
+zero covariance.
+
 ### Discrete random variable
 - Has a finite or countably finite number of states
 - These states are not necessarily integers; they can also
@@ -80,13 +102,13 @@ numerical values
 - The probability that X takes on a specific value
 	- $P(X = x_i)$ or $p(x_i)$
 
-
-### Continuous Random Variable
-- Associated with a real value
+### Probability Densities
+- Probabilities w.r.t. continuous variables.
 - X takes on a value in a continuum
 - Probability density function, $p(x)$
 - Evaluated over finite intervals of the continuum
 	- $p(x \in (a,b)) = \int_a^b p(x)dx$
+
 
 ## Probability Distributions
 - Description of how likely a random variable or set of random
@@ -111,13 +133,22 @@ be described using a probability density function (PDF)
 - Square root of variance is standard deviation, $\sigma ^2=Var(X)$
 
 ### Expectation
-- The expectation or expected value of some function $f(x)$ w.r.t
-a probability distribution $P(x)$ is the average or mean value that
-$f$ takes on when $x$ is drawn from $P$
-- For discrete variables :
-    - $E_{x \sim P}[f(x)] = sum_x P(x)f(x)$
-- For continuous:
-    - $E_{x \sim P}[f(x)] = \int P(x)f(x) dx$
+- The average value of some function $f(x)$ under a probability distrbution $p(x)$ is called the expectation of $f(x)$.
+- For a discrete distribution :
+\begin{equation}
+E[f] = \sum_x p(x)f(x)
+\end{equation}
+- Here the average is weighted by the relative probabilities of different values of $x$.
+- For continuous variables:
+\begin{equation}
+E[f] = \int p(x)f(x) dx
+\end{equation}
+- Here expectations are expressed in terms of an integration w.r.t the corresponding probability density.
+
+### Conditional Expectation
+\begin{equation}
+E_x[f|y] = sum_x p(x|y)f(x)
+\end{equation}
 
 
 ### Covariance
@@ -143,27 +174,6 @@ only how much the variables are related, rather than being affected
 by the scale of the separate variables
 
 
-
-### Independence
-- Two random variables $x$ and $y$ are independent if their probability
-distribution can be expressed as a product of two factors
-- If X,Y are independent, then
-    - $p(x,y)=p(x)p(y)$
-    - e.g. probability of coin flip
-- Two random variables are conditionally independent given a random variable
-$z$ if the conditional probability distribution over $x$ and $y$ factorizes
-in this way for every value of $z$:
-
-\begin{equation}
-    \forall x \in x,y \in y, z\in z, p(x=x,y=y|z=z) = p(x=x|z=z)p(y=y|z=z)
-\end{equation}
-
-Note: The notions of covaraince and independence are related but distinct.
-Related because two variables that are independent have zero covariance,
-and two variables that have non-zero covariance are dependent.
-
-2nd Note: It is possible for two variables to be dependent but have
-zero covariance.
 
 ### Law of Total Probability
 Discrete

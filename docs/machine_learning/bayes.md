@@ -8,6 +8,13 @@ Assumes that we always have a prior distribution for everything.
     - With enough data the likelihood term always wins.
 
 # Bayesian Theorem
+
+## Prior Probability
+- The probability available $before$ we observe an event
+
+## Posterior Probability
+- The probability obtained $after$ we observed an event
+
 - In Bayesian view, probabilities provide a quantification of uncertainty.
 - From a Bayesian perspective, we can use probability theory to describe the uncertainty in model parameters such as $w$.
 - We capture out assumption about $w$ before observing the data, in the form of a prior probability distribution $p(w)$.
