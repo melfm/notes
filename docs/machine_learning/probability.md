@@ -69,7 +69,7 @@ probability that a person is from Germany given that they speak German is quite
 high, but if a randomly selected person is taught to speak German, their
 country of origin does not change
 
-### Independence
+## Independence
 - If the joint distribution of two variables factorizes into the product of marginals so that $p(X, Y) = p(X)p(Y)$ then $X$ and $Y$ are said to be independent.
 - i.e. two random variables $x$ and $y$ are independent if their probability
 distribution can be expressed as a product of two factors
