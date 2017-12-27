@@ -102,13 +102,6 @@ numerical values
 - The probability that X takes on a specific value
 	- $P(X = x_i)$ or $p(x_i)$
 
-### Probability Densities
-- Probabilities w.r.t. continuous variables.
-- X takes on a value in a continuum
-- Probability density function, $p(x)$
-- Evaluated over finite intervals of the continuum
-	- $p(x \in (a,b)) = \int_a^b p(x)dx$
-
 
 ## Probability Distributions
 - Description of how likely a random variable or set of random
@@ -117,6 +110,19 @@ variables is to take on each of its possible states
 using a probability mass function (PMF)
 - Probability distribution over continuous random variables may
 be described using a probability density function (PDF)
+
+### Density estimation
+- Modelling probability distribution $p(x)$ of a random variable $x$ given a finite set $x_1,...,x_N$ of observations.
+
+### Parametric distributions
+- Governed by a small number of adaptive parameters such as mean and variance in case of Gaussian.
+
+### Probability Densities
+- Probabilities w.r.t. continuous variables.
+- X takes on a value in a continuum
+- Probability density function, $p(x)$
+- Evaluated over finite intervals of the continuum
+	- $p(x \in (a,b)) = \int_a^b p(x)dx$
 
 ## Measures of Distributions
 
@@ -174,7 +180,6 @@ only how much the variables are related, rather than being affected
 by the scale of the separate variables
 
 
-
 ### Law of Total Probability
 Discrete
 - $\sum_xp(x)=1$
@@ -208,9 +213,16 @@ variable:
 
 ## Probability Distributions
 ### Bernoulli Distribution
-- Distribution over a single binary random variable
-- Controlled by a single parameter $\Phi \in [0,1]$ -> gives probability
-of random variable being equal to 1
+- Distribution over a single binary random variable $x \in {0, 1}$
+- The probability of $x=1$ is denoted by parameter $\mu$
+\begin{equation}
+p(x=1 | \mu) = \mu \quad  \quad  0 \leq \mu \leq 1
+\end{equation}
+- The probability distribution over $x$ can be written as
+\begin{equation}
+Bern(x|\mu) = \mu^x (1- \mu)^{(1-x)}
+\end{equation}
+
 
 ### Multinoulli Distribution
 - Or categorical distribution is a distribution over a single dicrete
