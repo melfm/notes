@@ -22,7 +22,7 @@
 - [Multi-Layer Perceptron](#docs/machine_learning/neural_nets/mlp)
 - [Training techniques](#docs/machine_learning/neural_nets/training)
 - [Learning Processes](#docs/machine_learning/learning_process)
-- [Backpropagation Example](#docs/machine_learning/neural_nets/backprop)
+- [Backpropagation](#docs/machine_learning/neural_nets/backprop)
 - [Recurrent Neural Net](#docs/machine_learning/neural_nets/rnn)
 - [LSTM](#docs/machine_learning/neural_nets/lstm)
 - [Convolutional Neural Net](#docs/machine_learning/neural_nets/cnn)
@@ -31,13 +31,6 @@
 - [Boltzmann Machines](#docs/machine_learning/neural_nets/boltzmann)
 - [Belief Nets](#docs/machine_learning/neural_nets/belief_nets)
 - [PCA and Autoencoders](#docs/machine_learning/neural_nets/autoencoder)
-
-## Deep Learning
-- [Deep Networks](#docs/machine_learning/deep_learning/intro)
-
-## Object Detection
-- [Region CNN](#docs/machine_learning/deep_learning/RCNN)
-- [Roi-Pooling Techniques](#docs/machine_learning/deep_learning/roi_pooling)
 
 ## Optimization
 - [Numerical Computation](#docs/optimization/numerical_computation)
