@@ -1,4 +1,4 @@
-# [Mel Notes](Your project link)
+# [Mel Notes](https://melfm.github.io/notes)
 
 ## Papers
 - [Transfer in RL](#papers/transfer_learning)
