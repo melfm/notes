@@ -1,5 +1,9 @@
 # [Mel Notes](Your project link)
 
+## Papers
+- [Transfer in RL](#papers/transfer_learning)
+- [Reward Func in RL](#papers/reward_functions)
+
 ## Linear Algebra
 - [Matrix Basics](#docs/linear_algebra/LA_basics)
 
@@ -45,4 +49,3 @@
 - [MART](#docs/derivations/mart)
 - [F-measure](#docs/derivations/fmeas)
 - [Optimal learning rate](#docs/derivations/optEps)
-
