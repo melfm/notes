@@ -17,6 +17,8 @@ Intuitive Physics (ICML 2017)](https://arxiv.org/pdf/1706.04317.pdf)
 * [Sim2Real View Invariant Visual Servoing by Recurrent Control (CVPR 2018)](https://arxiv.org/abs/1712.07642)
 <br></br>
 * [Mutual Alignment Transfer Learning (CoRL 2017)](https://arxiv.org/abs/1707.07907)
+<br></br>
+* [Transfer Learning via Learning to Transfer (ICML 2018)](http://proceedings.mlr.press/v80/wei18a/wei18a.pdf)
 
 
 ## Transfer Similarity Metric
