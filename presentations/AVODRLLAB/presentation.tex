@@ -56,7 +56,7 @@
 \setcounter{tocdepth}{1}
 
 \begin{document}
-\usebackgroundtemplate{\begin{picture}(100,270) \centering \transparent{0.025}\includegraphics[width=\paperwidth]{logo/rllab_logo}\end{picture}}
+%\usebackgroundtemplate{\begin{picture}(100,270) \centering \transparent{0.025}\includegraphics[width=\paperwidth]{logo/wat_logo}\end{picture}}
 \frame[plain]{\titlepage}
 
 \part{Main Part}
@@ -154,8 +154,8 @@
 % Too much text here
 \begin{frame}
 	\frametitle{Background: Single-Staged Detectors}
+	\linespread{1.5}
 	\begin{itemize}
-		\item{Single Stage/Shot object detectors have also been proposed as RPN free architectures.}
 		\item{Example architectures:}
 		\begin{itemize}
 			\item{OverFeat: Integrated Recognition, Localization and Detection using Convolutional Networks (Zhang et al - 2013)}
@@ -225,38 +225,9 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Background: F-PointNet}
-	\begin{figure}
-		\begin{center}
-			\includegraphics[width=1.0\linewidth]{images/fpoint_net} \\
-			\caption{F-PointNet detection pipeline.}
-		\end{center}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Background: PointNet}
-	\linespread{1.5}
-	\begin{itemize}
-		\item{Pointcloud feature learning}
-		\item{Avoid converting pointcloud to other representations}
-		\begin{itemize}
-		    \item Voxelization
-		    \item Projection/Rendering
-		    \item Feature extraction
-		\end{itemize}
-	\begin{figure}
-		\includegraphics[width=0.5\linewidth]{images/pointnet/pointNet} \\
-		\caption{F-PointNet detection pipeline \cite{vgg_arch}.}
-	\end{figure}
-	\end{itemize}
-\end{frame}
-
-
 \section{AVOD - Aggregate View Object Detection}
 \begin{frame}
-	\frametitle{AVOD - Aggregate View Object Detection Architecture}
+	\frametitle{AVOD - Aggregate View Object Detection}
 	\begin{figure}
 		\begin{center}
 			\includegraphics[width=115mm]{images/Meta-Architecture}
@@ -438,6 +409,18 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Evaluation Metrics for Object Detection}
+	\begin{itemize}
+		\item{Precision \& Recall}
+	\begin{center}
+		\begin{align*}
+		Precision = \frac{TP}{TP + FP} \quad \quad Recall = \frac{TP}{TP + FN}
+		\end{align*}
+	\end{center}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
 	\frametitle{RPN Input Variations}
 	\begin{figure}
 		\hspace{-1.16cm} 
@@ -445,6 +428,111 @@
 			\caption{The recall vs number of proposals at a 3D IoU threshold of 0.5.}
 	\end{figure}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Background: F-PointNet \footnote{Frustum PointNets for 3D Object Detection from RGB-D Data (CVPR) 2018}}
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=1.0\linewidth]{images/fpoint_net} \\
+			%\caption{F-PointNet detection pipeline \cite{}.}
+		\end{center}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Background: PointNet}
+	\linespread{1.5}
+	\begin{itemize}
+		\item{Avoid converting pointcloud to other representations}
+		\begin{itemize}
+		    \item Voxelization
+		    \item Projection/Rendering
+		    \item Feature extraction
+		\end{itemize}
+		\item{Pointcloud feature learning}
+		\begin{itemize}
+	        \item Unordered point set as input
+	        \item Invariance under geometric transformations 
+		\end{itemize}
+	\begin{figure}
+		\includegraphics[width=0.5\linewidth]{images/pointnet/pointNet} \\
+	\end{figure}
+	\end{itemize}
+\end{frame}
+
+% HYS: Model needs to be invariant to N! permutations
+% Point cloud rotations should not alter results
+% How can we construct a family of symmetric functions by NN
+\begin{frame}
+\frametitle{Permutation Invariance: Symmetric Function}
+\linespread{1.5}
+	\begin{center}
+    \begin{align*}
+    	\quad \quad \quad \quad
+        f(x_1,x_2,...,x_n) = f(x_{\pi_1},x_{\pi_2},...,x_{\pi_n}), x_i \in \mathbb{R}^D
+    \end{align*}
+    \end{center}
+    \begin{itemize}
+        \item \textbf{Examples}:
+             \begin{align*}
+             	\quad \quad \quad \quad
+               f(x_1,x_2,...,x_n) = \max \{x_1,x_2,...,x_n\} \\
+               f(x_1,x_2,...,x_n) = x_1 + x_2 + ... +x_n
+            \end{align*}
+            \item Idea: Construct a family of symmetric functions by neural networks.
+    \end{itemize}
+\end{frame}
+
+% HYS: Learn and apply an affine transformation to input point coordinates - transformation is predicted by a mini-pointnet (T-Net) end-to-end trained with the rest of the network.
+\begin{frame}
+	\frametitle{Input Alignment by Transformer Network}
+	\linespread{1.5}
+    \begin{itemize}
+        \item Data dependent transformation for automatic alignment
+    \end{itemize}
+    \begin{figure}
+		\includegraphics[width=0.8\linewidth]{images/pointnet/t-Net} \\
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{PointNet Architecture}
+	\linespread{1.5}
+	\begin{figure}
+		\includegraphics[width=1.0\linewidth]{images/pointnet/pointnet_arch} \\
+		\caption{PointNet Classification and Segmentation Network.}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{F-PointNet}
+	\begin{figure}
+		\begin{center}
+			\includegraphics[width=1.0\linewidth]{images/pointnet/fpointNet_arch} \\
+			%\caption{F-PointNet detection pipeline \cite{}.}
+		\end{center}
+	\end{figure}
+	\begin{itemize}
+	    \item Get a 3D frustum from a 2D image region.
+	    \item  Given a point cloud in a frustum, the object instance is segmented.
+	    \item T-Net aligns points such that their centroid is close to amodal box center.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Evaluation Metrics for Object Detection}
+	\begin{itemize}
+		\item{Average Precision (AP)}
+		\begin{itemize}
+		    \begin{align*}
+				AP = \frac{1}{11} \sum_{r \in{0,0.1,...,1}}^{} p_{interp}(r)\\
+				p_{interp}(r) = \max_{\hat{r}:\hat{r} \geq r} p(\hat{r})
+			\end{align*}
+			\item{where $p(\hat{r})$ is the measured precision at recall $\hat{r}$.}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
 
 \begin{frame}
 	\frametitle{AVOD - Results on Car Detection}
@@ -492,16 +580,16 @@
 	\end{table}
 \end{frame}
 
-%\begin{frame}
-%	\frametitle{AVOD Results on KITTI and Autonomoose}
-%	\begin{center}
-%		\movie[width=0.5\textwidth,showcontrols=true]
-%		{% placeholder = text or image
-%		\includegraphics[width=0.7\textwidth]{images/video/video_logo.png}
-%		}%
-%		{images/video/AVOD.mp4}
-%	\end{center}
-%\end{frame}
+\begin{frame}
+	\frametitle{AVOD Results on KITTI and Autonomoose}
+	\begin{center}
+		\movie[width=0.5\textwidth,showcontrols=true]
+		{% placeholder = text or image
+		\includegraphics[width=0.7\textwidth]{images/video/video_logo.png}
+		}%
+		{images/video/AVOD.mp4}
+	\end{center}
+\end{frame}
 
 \begin{frame}
 	\frametitle{Motivation: Single Stage Detector}
