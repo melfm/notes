@@ -2,6 +2,7 @@
 
 ## Papers
 - [Transfer in RL](#papers/transfer_learning)
+- [Meta-Learning in RL](#papers/meta_learning)
 - [Reward Func in RL](#papers/reward_functions)
 
 ## Linear Algebra

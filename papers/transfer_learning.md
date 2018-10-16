@@ -17,8 +17,21 @@ Intuitive Physics (ICML 2017)](https://arxiv.org/pdf/1706.04317.pdf)
 * [Sim2Real View Invariant Visual Servoing by Recurrent Control (CVPR 2018)](https://arxiv.org/abs/1712.07642)
 <br></br>
 * [Mutual Alignment Transfer Learning (CoRL 2017)](https://arxiv.org/abs/1707.07907)
+
 <br></br>
 * [Transfer Learning via Learning to Transfer (ICML 2018)](http://proceedings.mlr.press/v80/wei18a/wei18a.pdf)
+
+<br></br>
+* [Successor Features for
+Transfer in Reinforcement Learning(NIPS 2017)](https://papers.nips.cc/paper/6994-successor-features-for-transfer-in-reinforcement-learning.pdf)
+
+
+<br></br>
+* [Grounded Action Transformation for Robot Learning in Simulation (AAAI 2017)](http://www.cs.utexas.edu/~jphanna/gsl.pdf)
+
+<br></br>
+* [Reinforcement Learning with Multi-Fidelity Simulators (ICRA 2014)](http://acl.mit.edu/papers/Cutler14_ICRA.pdf)
+
 
 
 ## Transfer Similarity Metric
